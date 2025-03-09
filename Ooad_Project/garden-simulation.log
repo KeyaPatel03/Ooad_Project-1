@@ -1,0 +1,467 @@
+[INFO ] 2024-12-12 17:11:36.204 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true}]
+[INFO ] 2024-12-12 17:11:36.210 [rainThread] RainController - Simulating rain of 2 units.
+[INFO ] 2024-12-12 17:11:36.210 [temperatureThread] GardenSimulatorAPI - Temperature reached 50 F
+[WARN ] 2024-12-12 17:11:36.211 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
+[INFO ] 2024-12-12 17:11:36.211 [temperatureThread] TemperatureController - Adjusting temperature to 50 °F.
+[INFO ] 2024-12-12 17:11:36.211 [rainThread] SprinklerController - Activating sprinklers, providing an average of 21 units of water to all plants.
+[INFO ] 2024-12-12 17:11:36.211 [rainThread] GardenSimulatorAPI - It rained 2 units
+[INFO ] 2024-12-12 17:11:39.816 [main] GardenSimulator - ---------------- End of Day 1 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:11:39.817 [main] GardenSimulatorAPI - Parasite Snails infested the garden
+[INFO ] 2024-12-12 17:11:39.818 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:11:39.818 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:11:39.818 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:11:39.817 [temperatureThread] GardenSimulatorAPI - Temperature reached 60 F
+[INFO ] 2024-12-12 17:11:39.818 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:11:39.818 [main] PestAttackController - Simulating pest attack: Snails
+[INFO ] 2024-12-12 17:11:39.819 [main] PestAttackController - Pest Snails does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:11:39.819 [temperatureThread] TemperatureController - Adjusting temperature to 60 °F.
+[INFO ] 2024-12-12 17:11:43.424 [main] GardenSimulator - ---------------- End of Day 2 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:11:43.425 [main] GardenSimulatorAPI - Parasite Slugs infested the garden
+[INFO ] 2024-12-12 17:11:43.425 [main] PestAttackController - Simulating pest attack: Slugs
+[INFO ] 2024-12-12 17:11:43.425 [main] PestAttackController - Pest Slugs does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:11:43.425 [temperatureThread] GardenSimulatorAPI - Temperature reached 45 F
+[INFO ] 2024-12-12 17:11:43.426 [temperatureThread] TemperatureController - Adjusting temperature to 45 °F.
+[INFO ] 2024-12-12 17:11:47.029 [main] GardenSimulator - ---------------- End of Day 3 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:11:47.029 [main] GardenSimulatorAPI - Parasite Whiteflies infested the garden
+[INFO ] 2024-12-12 17:11:47.029 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:11:47.029 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:11:47.029 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:11:47.029 [temperatureThread] GardenSimulatorAPI - Temperature reached 25 F
+[INFO ] 2024-12-12 17:11:47.029 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:11:47.029 [temperatureThread] TemperatureController - Adjusting temperature to 25 °F.
+[INFO ] 2024-12-12 17:11:47.029 [main] PestAttackController - Simulating pest attack: Whiteflies
+[WARN ] 2024-12-12 17:11:47.030 [temperatureThread] TemperatureController - Detected low temperature of 25 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 17:11:47.030 [main] PestAttackController - Pest Whiteflies does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:11:47.030 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 17:11:50.635 [main] GardenSimulator - ---------------- End of Day 4 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:11:50.638 [main] GardenSimulatorAPI - Alive Plants : [Rose, Tomato, Orange]
+[INFO ] 2024-12-12 17:11:50.640 [main] GardenSimulatorAPI - Dead Plants : []
+[INFO ] 2024-12-12 17:29:57.676 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true}]
+[INFO ] 2024-12-12 17:29:57.681 [rainThread] RainController - Simulating rain of 2 units.
+[WARN ] 2024-12-12 17:29:57.681 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
+[INFO ] 2024-12-12 17:29:57.682 [rainThread] SprinklerController - Activating sprinklers, providing an average of 21 units of water to all plants.
+[INFO ] 2024-12-12 17:29:57.681 [temperatureThread] GardenSimulatorAPI - Temperature reached 50 F
+[INFO ] 2024-12-12 17:29:57.682 [rainThread] GardenSimulatorAPI - It rained 2 units
+[INFO ] 2024-12-12 17:29:57.682 [temperatureThread] TemperatureController - Adjusting temperature to 50 °F.
+[INFO ] 2024-12-12 17:30:01.287 [main] GardenSimulator - ---------------- End of Day 1 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:30:01.288 [main] GardenSimulatorAPI - Parasite Aphids infested the garden
+[INFO ] 2024-12-12 17:30:01.289 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:30:01.289 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:01.289 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:01.288 [temperatureThread] GardenSimulatorAPI - Temperature reached 60 F
+[INFO ] 2024-12-12 17:30:01.290 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:01.290 [temperatureThread] TemperatureController - Adjusting temperature to 60 °F.
+[INFO ] 2024-12-12 17:30:01.290 [main] PestAttackController - Simulating pest attack: Aphids
+[INFO ] 2024-12-12 17:30:01.290 [main] PestAttackController - Pesticide protects Rose from the Aphids pest attack.
+[INFO ] 2024-12-12 17:30:04.896 [main] GardenSimulator - ---------------- End of Day 2 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:30:04.897 [main] GardenSimulatorAPI - Parasite Slugs infested the garden
+[INFO ] 2024-12-12 17:30:04.898 [main] PestAttackController - Simulating pest attack: Slugs
+[INFO ] 2024-12-12 17:30:04.898 [main] PestAttackController - Pest Slugs does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:30:04.898 [temperatureThread] GardenSimulatorAPI - Temperature reached 45 F
+[INFO ] 2024-12-12 17:30:04.899 [temperatureThread] TemperatureController - Adjusting temperature to 45 °F.
+[INFO ] 2024-12-12 17:30:08.504 [main] GardenSimulator - ---------------- End of Day 3 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:30:08.505 [main] GardenSimulatorAPI - Parasite Whiteflies infested the garden
+[INFO ] 2024-12-12 17:30:08.505 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:30:08.506 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:08.505 [temperatureThread] GardenSimulatorAPI - Temperature reached 25 F
+[INFO ] 2024-12-12 17:30:08.506 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:08.506 [temperatureThread] TemperatureController - Adjusting temperature to 25 °F.
+[INFO ] 2024-12-12 17:30:08.506 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[WARN ] 2024-12-12 17:30:08.506 [temperatureThread] TemperatureController - Detected low temperature of 25 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 17:30:08.506 [main] PestAttackController - Simulating pest attack: Whiteflies
+[INFO ] 2024-12-12 17:30:08.506 [main] PestAttackController - Pest Whiteflies does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:30:08.506 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 17:30:12.108 [main] GardenSimulator - ---------------- End of Day 4 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:30:12.109 [main] GardenSimulatorAPI - Parasite Weevils infested the garden
+[INFO ] 2024-12-12 17:30:12.110 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:30:12.110 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:12.110 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:12.109 [temperatureThread] GardenSimulatorAPI - Temperature reached 30 F
+[INFO ] 2024-12-12 17:30:12.110 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:30:12.110 [temperatureThread] TemperatureController - Adjusting temperature to 30 °F.
+[INFO ] 2024-12-12 17:30:12.110 [main] PestAttackController - Simulating pest attack: Weevils
+[WARN ] 2024-12-12 17:30:12.110 [temperatureThread] TemperatureController - Detected low temperature of 30 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 17:30:12.111 [main] PestAttackController - Pest Weevils does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:30:12.111 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 17:30:15.714 [main] GardenSimulator - ---------------- End of Day 5 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:30:15.717 [main] GardenSimulatorAPI - Alive Plants : [Rose, Tomato, Orange]
+[INFO ] 2024-12-12 17:30:15.718 [main] GardenSimulatorAPI - Dead Plants : []
+[INFO ] 2024-12-12 17:33:08.071 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true}]
+[INFO ] 2024-12-12 17:33:08.075 [rainThread] RainController - Simulating rain of 2 units.
+[WARN ] 2024-12-12 17:33:08.076 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
+[INFO ] 2024-12-12 17:33:08.076 [rainThread] SprinklerController - Activating sprinklers, providing an average of 21 units of water to all plants.
+[INFO ] 2024-12-12 17:33:08.076 [temperatureThread] GardenSimulatorAPI - Temperature reached 50 F
+[INFO ] 2024-12-12 17:33:08.076 [rainThread] GardenSimulatorAPI - It rained 2 units
+[INFO ] 2024-12-12 17:33:08.076 [temperatureThread] TemperatureController - Adjusting temperature to 50 °F.
+[INFO ] 2024-12-12 17:33:11.681 [main] GardenSimulator - ---------------- End of Day 1 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:33:11.682 [main] GardenSimulatorAPI - Parasite Aphids infested the garden
+[INFO ] 2024-12-12 17:33:11.683 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:33:11.683 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:11.683 [temperatureThread] GardenSimulatorAPI - Temperature reached 60 F
+[INFO ] 2024-12-12 17:33:11.683 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:11.683 [temperatureThread] TemperatureController - Adjusting temperature to 60 °F.
+[INFO ] 2024-12-12 17:33:11.683 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:11.684 [main] PestAttackController - Simulating pest attack: Aphids
+[INFO ] 2024-12-12 17:33:11.684 [main] PestAttackController - Pesticide protects Rose from the Aphids pest attack.
+[INFO ] 2024-12-12 17:33:15.286 [main] GardenSimulator - ---------------- End of Day 2 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:33:15.287 [main] GardenSimulatorAPI - Parasite Slugs infested the garden
+[INFO ] 2024-12-12 17:33:15.288 [main] PestAttackController - Simulating pest attack: Slugs
+[INFO ] 2024-12-12 17:33:15.287 [temperatureThread] GardenSimulatorAPI - Temperature reached 45 F
+[INFO ] 2024-12-12 17:33:15.288 [main] PestAttackController - Pest Slugs does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:33:15.288 [temperatureThread] TemperatureController - Adjusting temperature to 45 °F.
+[INFO ] 2024-12-12 17:33:18.890 [main] GardenSimulator - ---------------- End of Day 3 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:33:18.891 [main] GardenSimulatorAPI - Parasite Whiteflies infested the garden
+[INFO ] 2024-12-12 17:33:18.891 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:33:18.892 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:18.892 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:18.891 [temperatureThread] GardenSimulatorAPI - Temperature reached 25 F
+[INFO ] 2024-12-12 17:33:18.892 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:18.892 [temperatureThread] TemperatureController - Adjusting temperature to 25 °F.
+[INFO ] 2024-12-12 17:33:18.893 [main] PestAttackController - Simulating pest attack: Whiteflies
+[WARN ] 2024-12-12 17:33:18.893 [temperatureThread] TemperatureController - Detected low temperature of 25 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 17:33:18.893 [main] PestAttackController - Pest Whiteflies does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:33:18.893 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 17:33:22.496 [main] GardenSimulator - ---------------- End of Day 4 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:33:22.497 [main] GardenSimulatorAPI - Parasite Weevils infested the garden
+[INFO ] 2024-12-12 17:33:22.497 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 17:33:22.498 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:22.498 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:22.497 [temperatureThread] GardenSimulatorAPI - Temperature reached 30 F
+[INFO ] 2024-12-12 17:33:22.498 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 17:33:22.498 [temperatureThread] TemperatureController - Adjusting temperature to 30 °F.
+[INFO ] 2024-12-12 17:33:22.498 [main] PestAttackController - Simulating pest attack: Weevils
+[WARN ] 2024-12-12 17:33:22.498 [temperatureThread] TemperatureController - Detected low temperature of 30 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 17:33:22.498 [main] PestAttackController - Pest Weevils does not have any impact for any of the plants
+[INFO ] 2024-12-12 17:33:22.498 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 17:33:26.099 [main] GardenSimulator - ---------------- End of Day 5 of Garden simulation -----------------
+[INFO ] 2024-12-12 17:33:26.102 [main] GardenSimulatorAPI - Alive Plants : [Rose, Tomato, Orange]
+[INFO ] 2024-12-12 17:33:26.103 [main] GardenSimulatorAPI - Dead Plants : []
+[INFO ] 2024-12-12 18:54:25.431 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:26.047 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:26.891 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:27.543 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:28.241 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:28.942 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:29.642 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:33.094 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:33.992 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:35.075 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:36.058 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:36.925 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:38.007 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 18:54:39.872 [JavaFX Application Thread] TemperatureController - Adjusting temperature to 24 °F.
+[WARN ] 2024-12-12 18:54:39.873 [JavaFX Application Thread] TemperatureController - Detected low temperature of 24 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 18:54:39.873 [JavaFX Application Thread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 18:54:39.873 [JavaFX Application Thread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[WARN ] 2024-12-12 18:54:39.873 [JavaFX Application Thread] GardenController - Warning: Low temperature detected. Heating system activated. Current temperature: 50°F
+[INFO ] 2024-12-12 18:54:45.258 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.261 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.262 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.262 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.262 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.262 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:45.262 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 18:54:46.292 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 13 units of water to all plants.
+[INFO ] 2024-12-12 18:55:01.641 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 13 units of water to all plants.
+[INFO ] 2024-12-12 18:55:02.392 [JavaFX Application Thread] TemperatureController - Adjusting temperature to 24 °F.
+[WARN ] 2024-12-12 18:55:02.393 [JavaFX Application Thread] TemperatureController - Detected low temperature of 24 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 18:55:02.393 [JavaFX Application Thread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 18:55:02.393 [JavaFX Application Thread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[WARN ] 2024-12-12 18:55:02.393 [JavaFX Application Thread] GardenController - Warning: Low temperature detected. Heating system activated. Current temperature: 50°F
+[INFO ] 2024-12-12 19:31:17.056 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:17.225 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:17.344 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:19.739 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:20.346 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:20.519 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:20.670 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:20.841 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:21.186 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:21.357 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:21.509 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:21.696 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:21.988 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:32.056 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:32.377 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:32.646 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:32.855 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:34.057 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:34.311 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:34.558 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:34.781 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:34.947 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:35.098 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:35.302 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:36.562 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:36.875 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:37.077 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:37.274 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:37.505 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:37.790 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:38.017 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:38.181 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:38.428 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 19:31:38.714 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:58.417 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:58.705 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:58.909 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:59.128 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:59.358 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:59.623 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:06:59.848 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:00.119 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:00.350 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:02.243 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:02.419 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:02.667 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:02.832 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:03.103 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:03.297 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:03.477 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:03.681 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:03.936 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:04.257 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:04.488 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:04.691 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:04.918 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:05.127 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:05.366 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:05.645 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:05.876 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:06.125 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:06.355 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:06.596 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:06.874 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:07.198 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:07.404 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:09.678 [JavaFX Application Thread] RainController - Simulating rain of 10 units.
+[INFO ] 2024-12-12 21:07:09.680 [JavaFX Application Thread] GardenController - Sufficient rainfall received. No need to activate sprinklers.
+[INFO ] 2024-12-12 21:07:24.402 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:07:24.402 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.403 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.404 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.405 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.405 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.405 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.617 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.618 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.619 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.620 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.620 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.620 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.620 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.782 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:07:24.782 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.782 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.782 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.782 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.783 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.784 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.784 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.784 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.784 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:24.784 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.032 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.033 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.034 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.035 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:25.035 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:07:26.477 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:07:26.767 [JavaFX Application Thread] RainController - Simulating rain of 10 units.
+[INFO ] 2024-12-12 21:07:26.769 [JavaFX Application Thread] GardenController - Sufficient rainfall received. No need to activate sprinklers.
+[INFO ] 2024-12-12 21:11:56.791 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:11:57.181 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:43.504 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:43.743 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:43.987 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:44.286 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:44.518 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:44.719 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:45.020 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:45.244 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:45.432 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:45.628 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:45.867 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:46.222 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:46.446 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:46.686 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:46.889 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:47.142 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:47.474 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:47.712 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:47.917 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:48.155 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:48.478 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:53.174 [JavaFX Application Thread] RainController - Simulating rain of 10 units.
+[INFO ] 2024-12-12 21:21:53.175 [JavaFX Application Thread] GardenController - Sufficient rainfall received. No need to activate sprinklers.
+[INFO ] 2024-12-12 21:21:55.153 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:55.407 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:55.821 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:56.084 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:56.362 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:57.072 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:57.569 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:57.897 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:58.121 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:58.506 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:21:58.768 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:01.769 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:01.951 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:02.147 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:02.329 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:02.566 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:02.783 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:02.957 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:04.085 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:04.263 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:04.480 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:04.616 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:22.456 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 21:31:23.371 [JavaFX Application Thread] RainController - Simulating rain of 10 units.
+[INFO ] 2024-12-12 21:31:23.374 [JavaFX Application Thread] GardenController - Sufficient rainfall received. No need to activate sprinklers.
+[INFO ] 2024-12-12 21:54:15.542 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true}]
+[INFO ] 2024-12-12 21:54:15.545 [rainThread] RainController - Simulating rain of 2 units.
+[WARN ] 2024-12-12 21:54:15.545 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
+[INFO ] 2024-12-12 21:54:15.545 [rainThread] SprinklerController - Activating sprinklers, providing an average of 21 units of water to all plants.
+[INFO ] 2024-12-12 21:54:15.546 [rainThread] GardenSimulatorAPI - It rained 2 units
+[INFO ] 2024-12-12 21:54:15.545 [temperatureThread] GardenSimulatorAPI - Temperature reached 50 F
+[INFO ] 2024-12-12 21:54:15.546 [temperatureThread] TemperatureController - Adjusting temperature to 50 °F.
+[INFO ] 2024-12-12 21:54:19.151 [main] GardenSimulator - ---------------- End of Day 1 of Garden simulation -----------------
+[INFO ] 2024-12-12 21:54:19.153 [main] GardenSimulatorAPI - Parasite Aphids infested the garden
+[INFO ] 2024-12-12 21:54:19.153 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:54:19.154 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:19.154 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:19.154 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:19.153 [temperatureThread] GardenSimulatorAPI - Temperature reached 60 F
+[INFO ] 2024-12-12 21:54:19.154 [main] PestAttackController - Simulating pest attack: Aphids
+[INFO ] 2024-12-12 21:54:19.154 [temperatureThread] TemperatureController - Adjusting temperature to 60 °F.
+[INFO ] 2024-12-12 21:54:19.154 [main] PestAttackController - Pesticide protects Rose from the Aphids pest attack.
+[INFO ] 2024-12-12 21:54:22.760 [main] GardenSimulator - ---------------- End of Day 2 of Garden simulation -----------------
+[INFO ] 2024-12-12 21:54:22.761 [main] GardenSimulatorAPI - Parasite Slugs infested the garden
+[INFO ] 2024-12-12 21:54:22.761 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:54:22.761 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:22.761 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:22.762 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:22.761 [temperatureThread] GardenSimulatorAPI - Temperature reached 45 F
+[INFO ] 2024-12-12 21:54:22.762 [main] PestAttackController - Simulating pest attack: Slugs
+[INFO ] 2024-12-12 21:54:22.762 [temperatureThread] TemperatureController - Adjusting temperature to 45 °F.
+[INFO ] 2024-12-12 21:54:22.762 [main] PestAttackController - Pest Slugs does not have any impact for any of the plants
+[INFO ] 2024-12-12 21:54:26.367 [main] GardenSimulator - ---------------- End of Day 3 of Garden simulation -----------------
+[INFO ] 2024-12-12 21:54:26.369 [main] GardenSimulatorAPI - Parasite Whiteflies infested the garden
+[INFO ] 2024-12-12 21:54:26.369 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 21:54:26.369 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:26.370 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:26.369 [temperatureThread] GardenSimulatorAPI - Temperature reached 25 F
+[INFO ] 2024-12-12 21:54:26.370 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 21:54:26.370 [temperatureThread] TemperatureController - Adjusting temperature to 25 °F.
+[INFO ] 2024-12-12 21:54:26.370 [main] PestAttackController - Simulating pest attack: Whiteflies
+[WARN ] 2024-12-12 21:54:26.371 [temperatureThread] TemperatureController - Detected low temperature of 25 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 21:54:26.371 [main] PestAttackController - Pest Whiteflies does not have any impact for any of the plants
+[INFO ] 2024-12-12 21:54:26.371 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 21:54:29.976 [main] GardenSimulator - ---------------- End of Day 4 of Garden simulation -----------------
+[INFO ] 2024-12-12 21:54:29.978 [main] GardenSimulatorAPI - Parasite Weevils infested the garden
+[INFO ] 2024-12-12 21:54:29.978 [main] PestAttackController - Simulating pest attack: Weevils
+[INFO ] 2024-12-12 21:54:29.978 [main] PestAttackController - Pest Weevils does not have any impact for any of the plants
+[INFO ] 2024-12-12 21:54:29.978 [temperatureThread] GardenSimulatorAPI - Temperature reached 30 F
+[INFO ] 2024-12-12 21:54:29.979 [temperatureThread] TemperatureController - Adjusting temperature to 30 °F.
+[WARN ] 2024-12-12 21:54:29.980 [temperatureThread] TemperatureController - Detected low temperature of 30 which is below 40. Activating Garden Heating system
+[INFO ] 2024-12-12 21:54:29.980 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2024-12-12 21:54:33.581 [main] GardenSimulator - ---------------- End of Day 5 of Garden simulation -----------------
+[INFO ] 2024-12-12 21:54:33.584 [main] GardenSimulatorAPI - Alive Plants : [Rose, Tomato, Orange]
+[INFO ] 2024-12-12 21:54:33.585 [main] GardenSimulatorAPI - Dead Plants : []
+[INFO ] 2024-12-12 22:31:37.225 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:37.417 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:37.622 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:37.783 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:37.958 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:38.258 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:38.445 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:38.633 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:39.993 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:40.156 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:40.358 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:40.597 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:40.799 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:41.041 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:41.272 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:41.476 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:41.647 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:42.961 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:43.168 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:43.326 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:43.642 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:43.836 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2024-12-12 22:31:45.704 [JavaFX Application Thread] RainController - Simulating rain of 10 units.
+[INFO ] 2024-12-12 22:31:45.705 [JavaFX Application Thread] GardenController - Sufficient rainfall received. No need to activate sprinklers.
+[INFO ] 2024-12-12 22:31:48.479 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2024-12-12 22:31:48.480 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.480 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.480 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.480 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2024-12-12 22:31:48.481 [JavaFX Application Thread] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
