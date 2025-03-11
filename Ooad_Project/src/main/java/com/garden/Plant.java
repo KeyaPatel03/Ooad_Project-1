@@ -1,12 +1,12 @@
 package com.garden;
 
 
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 public class Plant {
     public static final HashMap<Plant, ImageView> plantImageViewMap = new HashMap<>();
@@ -22,15 +22,17 @@ public class Plant {
     private boolean isAlive;
     private boolean pesticideApplied;
     private GridPane gardenGrid;
+    private int health;
 
 
-    public Plant(String name, int temperature, int waterRequirement, List<String> parasites) {
+    public Plant(String name, int temperature, int waterRequirement, List<String> parasites, int health) {
         this.name = name;
         this.waterRequirement = waterRequirement;
         this.parasites = parasites;
         this.currentWaterLevel = 0;
         this.temperature = temperature;
         this.isAlive = true;
+        this.health = 100;
     }
 
     public Plant(String name, int temperature, int waterRequirement, List<String> parasites, GridPane gardenGrid) {
@@ -133,6 +135,27 @@ public class Plant {
 
     public void setCol(int col) {
         this.col = col;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public String getPlantType() {
+        return this.name;
+    }
+    
+
+    public void takeDamage(int damage) {
+        this.health -= damage;
+        if (this.health <= 0) {
+            this.health = 0;
+            this.isAlive = false; // The plant dies when health hits zero
+        }
+    }
+    
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     @Override

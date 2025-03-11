@@ -1,10 +1,5 @@
 package com.garden;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class GardenSimulatorAPI {
     Logger log = LogManager.getLogger(GardenSimulatorAPI.class);
@@ -41,13 +41,14 @@ public class GardenSimulatorAPI {
                 JSONObject plantObj = plantsArray.getJSONObject(i);
                 String name = plantObj.getString("name");
                 int waterRequirement = plantObj.getInt("waterRequirement");
+                int health = plantObj.getInt("health");
                 int temperature = plantObj.getInt("temperature");  // Added line to read the temperature
                 JSONArray parasitesArray = plantObj.getJSONArray("parasites");
                 List<String> parasites = new ArrayList<>();
                 for (int j = 0; j < parasitesArray.length(); j++) {
                     parasites.add(parasitesArray.getString(j));
                 }
-                plants.add(new Plant(name, waterRequirement, temperature, parasites)); // Adjusted to use the read temperature
+                plants.add(new Plant(name, waterRequirement, temperature, parasites, health)); // Adjusted to use the read temperature
             }
         } catch (IOException e) {
             throw new RuntimeException("Error while loading and reading the plant details config.json file", e);

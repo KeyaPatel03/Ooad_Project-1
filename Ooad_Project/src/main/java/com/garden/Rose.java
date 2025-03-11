@@ -1,19 +1,19 @@
 package com.garden;
 
 
-import javafx.scene.layout.GridPane;
-
 import java.util.Arrays;
+
+import javafx.scene.layout.GridPane;
 
 
 public class Rose extends Plant {
 
     public Rose() {
-        super("Rose", 70, 15, Arrays.asList("Aphids", "Spider Mites"));
+        super("Rose", 70, 15, Arrays.asList("Aphids", "Spider Mites"), 100);
     }
 
     public Rose( GridPane gardenGrid) {
-        super("Rose", 70, 15, Arrays.asList("Aphids", "Spider Mites"));
+        super("Rose", 70, 15, Arrays.asList("Aphids", "Spider Mites"), 100);
     }
 
 

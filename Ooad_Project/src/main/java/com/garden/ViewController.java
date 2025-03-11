@@ -1,21 +1,39 @@
 package com.garden;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
+import java.util.Set;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import static com.garden.Insect.insects;
+import static com.garden.Pest.pests;
+import static com.garden.Plant.plantImageViewMap;
+import static com.garden.Plant.plantsList;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Path;
-
-import javafx.scene.control.TextArea;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,18 +41,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.*;
-
-import static com.garden.Pest.pests;
-import static com.garden.Plant.plantImageViewMap;
-import static com.garden.Plant.plantsList;
-import javafx.application.Platform;
 
 
 public class ViewController {
@@ -43,19 +49,18 @@ public class ViewController {
     private static final Image rainyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.png")));
     public static final Image orange = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/orange.png")));
     public static final Image tomato = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/tomato.png")));
-    public static final Map<Pest, ImageView> pestImageViewMap = new HashMap<>();
+    public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
     private static final Image roseImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rose.png")));
     private static final Image soilImage = new Image("file:cc.jfif");
 
-    private static final Image pestImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/caterpillar.png")));
+    private static final Image caterpillar = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/caterpillar.png")));
     public static Set<String> occupiedCells = new HashSet<>();
     public static ArrayList<String> occupiedPestCells = new ArrayList<>();
     private HeatingController heatingController;
     private SprinklerController sprinklerController;
     private PesticideController pesticideController;
     private RainController rainController;
-    private TemperatureController temperatureController;
-
+    private TemperatureController temperatureController;   
 
     public static int day = 1;
     public Button pressToPlayButton;
@@ -427,16 +432,19 @@ public class ViewController {
                 int row = Integer.parseInt(parts[0]);
                 int col = Integer.parseInt(parts[1]);
                 HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+                Insect insect = createRandomInsectForPlant(row, col);
                 ImageView pestView = new ImageView();
                 pestView.setFitHeight(35);
                 pestView.setFitWidth(35);
-                pestView.setImage(pestImage);
+                pestView.setImage(insect.getImage());
                 imageBox.getChildren().add(pestView);
-                Pest pest = new Pest(row, col, 0);
-                pestImageViewMap.put(pest, pestView);
+                //Pest pest = new Pest(row, col, 0);
+                
+                pestImageViewMap.put(insect, pestView);
                 occupiedPestCells.add(cell);
-                pests.add(pest);
+                insects.add(insect);
                 for (Plant plant : Plant.plantsList) {
+                    System.out.println("plant = " + plant);
                     if (plant.getRow() == row && plant.getCol() == col) {
                         plant.numPests++;
                     }
@@ -445,10 +453,28 @@ public class ViewController {
         }
     }
 
+    
+    private Insect createRandomInsectForPlant(int row, int col) {
+    
+        Insect insect = null;
+                Insect[] possibleInsects = {
+                    new Aphid(),
+                    new Mites(),
+                    new Caterpillar(),
+                    new Beetle(),
+                };
+                
+                insect = possibleInsects[new Random().nextInt(possibleInsects.length)];
+
+                System.out.println("insect name = " + insect.getName() + " img url = " + insect.getImage());
+        return insect;
+    }
+    
+
     public void pestKillPlant() {
         Platform.runLater(() -> {
             List<Plant> plantsToRemove = new ArrayList<>();
-            List<Pest> pestsToRemove = new ArrayList<>();
+            List<Insect> pestsToRemove = new ArrayList<>();
             for (Plant plant : plantsList) {
                 if (plant.numPests >= 1) {
                     int col = plant.getCol();
@@ -466,12 +492,12 @@ public class ViewController {
                         occupiedCells.remove(cell);
                         plantsToRemove.add(plant);
 
-                        for (Pest pest : pests) {
-                            if (pest.getRow() == row && pest.getCol() == col) {
-                                ImageView pestView = pestImageViewMap.get(pest);
+                        for (Insect insect : insects) {
+                            if (insect.getRow() == row && insect.getCol() == col) {
+                                ImageView pestView = pestImageViewMap.get(insect);
                                 imageBox.getChildren().remove(pestView);
-                                pestImageViewMap.remove(pest, pestView);
-                                pestsToRemove.add(pest);
+                                pestImageViewMap.remove(insect, pestView);
+                                pestsToRemove.add(insect);
                             }
                         }
                     }
@@ -484,30 +510,25 @@ public class ViewController {
 
     public void pestControl() {
 
-        List<Pest> pestsToRemove = new ArrayList<>();
+        List<Insect> pestsToRemove = new ArrayList<>();
 
-        for (Pest pest : pests) {
-            Random ran = new Random();
-            int rando = ran.nextInt(8);
-
+        for (Insect pest : insects) {
             String cell = pest.getRow() + "," + pest.getCol();
-            if (rando != 1) {
-                ImageView spiderView = pestImageViewMap.get(pest);
+           
+            ImageView spiderView = pestImageViewMap.get(pest);
 
-                if (spiderView != null) {
-                    // remove ImageView from grid
-                    HBox imageBox = (HBox) spiderView.getParent();
-                    imageBox.getChildren().remove(spiderView);
-                    pestsToRemove.add(pest);
+            if (spiderView != null) {
+                // remove ImageView from grid
+                HBox imageBox = (HBox) spiderView.getParent();
+                imageBox.getChildren().remove(spiderView);
+                pestsToRemove.add(pest);
 
-                    pestImageViewMap.remove(pest);
-                    occupiedPestCells.remove(cell);
-                }
+                pestImageViewMap.remove(pest);
+                occupiedPestCells.remove(cell);
             }
         }
-        pests.removeAll(pestsToRemove);
+        insects.removeAll(pestsToRemove);
         pestKillPlant();
-
     }
 
 
