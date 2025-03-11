@@ -24,6 +24,7 @@ import static com.garden.Plant.plantImageViewMap;
 import static com.garden.Plant.plantsList;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -391,21 +392,26 @@ public class ViewController {
 
     //incrementing each day and calling appropriate methods to run each day
     public void iterateDay() throws IOException {
-        day++;
         userInfoLabel.setText("Today is Day " + day);
+    
+        // Perform pest control
         pestControl();
-        pestKillPlant();
-        addPestsToCells();
-        
+    
+        // Wait for 3 seconds before adding new pests
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(event -> addPestsToCells());
+        delay.play();
+    
         if (!occupiedCells.isEmpty()) {
-            //pests();
+            // pests();
         }
+        
+        day++;
     }
+    
 
     public void iterateDayWithTimer() throws InterruptedException, IOException {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<>() {
-            int i = 0;
-
             @Override
             public void handle(ActionEvent event) {
                 try {
@@ -413,7 +419,6 @@ public class ViewController {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                i++;
             }
         }));
         timeline.setCycleCount(100);
@@ -533,7 +538,6 @@ public class ViewController {
     }
 
     public void pestControl() {
-
         List<Insect> pestsToRemove = new ArrayList<>();
 
         for (Insect pest : insects) {
@@ -545,20 +549,35 @@ public class ViewController {
                 ImageView spiderView = pestImageViewMap.get(pest);
 
                 if (spiderView != null) {
-                    // remove ImageView from grid
+                    // Remove the insect's ImageView from the grid
                     HBox imageBox = (HBox) spiderView.getParent();
                     imageBox.getChildren().remove(spiderView);
+
+                    // Add the pesticide ImageView
+                    ImageView pesticideView = new ImageView(pestiside);
+                    pesticideView.setFitHeight(35);
+                    pesticideView.setFitWidth(35);
+                    imageBox.getChildren().add(pesticideView);
+
+                    // Track the pest for removal
                     pestsToRemove.add(pest);
 
                     pestImageViewMap.remove(pest);
                     occupiedPestCells.remove(cell);
+
+                    // Remove the pesticide image after 2 seconds
+                    PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                    delay.setOnFinished(event -> imageBox.getChildren().remove(pesticideView));
+                    delay.play();
                 }
             }
         }
+
+        // Remove pests from the list
         insects.removeAll(pestsToRemove);
         pestKillPlant();
-
     }
+
     
 
 }
