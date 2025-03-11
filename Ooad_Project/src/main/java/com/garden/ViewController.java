@@ -51,6 +51,7 @@ public class ViewController {
     public static final Image tomato = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/tomato.png")));
     public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
     private static final Image roseImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rose.png")));
+    private static final Image pestiside = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pestiside.png")));
     private static final Image soilImage = new Image("file:cc.jfif");
 
     private static final Image caterpillar = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/caterpillar.png")));
@@ -395,6 +396,7 @@ public class ViewController {
         pestControl();
         pestKillPlant();
         addPestsToCells();
+        
         if (!occupiedCells.isEmpty()) {
             //pests();
         }
@@ -424,50 +426,72 @@ public class ViewController {
     }
 
     public void addPestsToCells() {
+        // Create a random insect type outside the loop
+        Insect insect = createRandomInsectForPlant();  // Get a random insect type
+    
         for (String cell : occupiedCells) {
             Random random = new Random();
-            int num = random.nextInt(3);
+            int num = random.nextInt(3);  // Random number between 0 and 2
+    
             if (num == 1) {
+                // Split the cell string into row and column
                 String[] parts = cell.split(",");
                 int row = Integer.parseInt(parts[0]);
                 int col = Integer.parseInt(parts[1]);
+                
+                // Access the correct HBox in the grid to place the image
                 HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
-                Insect insect = createRandomInsectForPlant(row, col);
+    
+                // Create a new instance of the insect each time in the loop
+                // Create a new instance of the insect
+                
+                // Create a new ImageView and set the image of the new insect
                 ImageView pestView = new ImageView();
                 pestView.setFitHeight(35);
                 pestView.setFitWidth(35);
-                pestView.setImage(insect.getImage());
-                imageBox.getChildren().add(pestView);
-                //Pest pest = new Pest(row, col, 0);
+                pestView.setImage(insect.getImage());  // Set the image for the created insect
                 
-                pestImageViewMap.put(insect, pestView);
+                // Add the ImageView to the HBox in the grid
+                imageBox.getChildren().add(pestView);
+                Insect newInsect = createInsectInstance(insect);  
+                // Update the pestImageViewMap to associate the insect with its ImageView
+                pestImageViewMap.put(newInsect, pestView);
+                
+                // Add the cell to occupiedPestCells to track where pests are
                 occupiedPestCells.add(cell);
-                insects.add(insect);
+                
+                // Add the new insect to the insects list to track the insect
+                insects.add(newInsect);
+    
+                // Loop through the plants to check if there is a plant in the same position as the insect
                 for (Plant plant : Plant.plantsList) {
-                    System.out.println("plant = " + plant);
                     if (plant.getRow() == row && plant.getCol() == col) {
+                        // Increase the number of pests for that plant
                         plant.numPests++;
                     }
                 }
             }
         }
     }
-
     
-    private Insect createRandomInsectForPlant(int row, int col) {
+    private Insect createRandomInsectForPlant() {
+        Insect[] possibleInsects = {
+            new Aphid(),
+            new Mites(),
+            new Caterpillar(),
+            new Beetle(),
+        };
     
-        Insect insect = null;
-                Insect[] possibleInsects = {
-                    new Aphid(),
-                    new Mites(),
-                    new Caterpillar(),
-                    new Beetle(),
-                };
-                
-                insect = possibleInsects[new Random().nextInt(possibleInsects.length)];
-
-                System.out.println("insect name = " + insect.getName() + " img url = " + insect.getImage());
-        return insect;
+        return possibleInsects[new Random().nextInt(possibleInsects.length)];
+    }
+    
+    private Insect createInsectInstance(Insect insectType) {
+        try {
+            return insectType.getClass().getConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     
 
@@ -492,19 +516,19 @@ public class ViewController {
                         occupiedCells.remove(cell);
                         plantsToRemove.add(plant);
 
-                        for (Insect insect : insects) {
-                            if (insect.getRow() == row && insect.getCol() == col) {
-                                ImageView pestView = pestImageViewMap.get(insect);
+                        for (Insect pest : insects) {
+                            if (pest.getRow() == row && pest.getCol() == col) {
+                                ImageView pestView = pestImageViewMap.get(pest);
                                 imageBox.getChildren().remove(pestView);
-                                pestImageViewMap.remove(insect, pestView);
-                                pestsToRemove.add(insect);
+                                pestImageViewMap.remove(pest, pestView);
+                                pestsToRemove.add(pest);
                             }
                         }
                     }
                 }
             }
             Plant.plantsList.removeAll(plantsToRemove);
-            pests.removeAll(pestsToRemove);
+            insects.removeAll(pestsToRemove);
         });
     }
 
@@ -513,23 +537,28 @@ public class ViewController {
         List<Insect> pestsToRemove = new ArrayList<>();
 
         for (Insect pest : insects) {
+            Random ran = new Random();
+            int rando = ran.nextInt(8);
+
             String cell = pest.getRow() + "," + pest.getCol();
-           
-            ImageView spiderView = pestImageViewMap.get(pest);
+            if (rando != 1) {
+                ImageView spiderView = pestImageViewMap.get(pest);
 
-            if (spiderView != null) {
-                // remove ImageView from grid
-                HBox imageBox = (HBox) spiderView.getParent();
-                imageBox.getChildren().remove(spiderView);
-                pestsToRemove.add(pest);
+                if (spiderView != null) {
+                    // remove ImageView from grid
+                    HBox imageBox = (HBox) spiderView.getParent();
+                    imageBox.getChildren().remove(spiderView);
+                    pestsToRemove.add(pest);
 
-                pestImageViewMap.remove(pest);
-                occupiedPestCells.remove(cell);
+                    pestImageViewMap.remove(pest);
+                    occupiedPestCells.remove(cell);
+                }
             }
         }
         insects.removeAll(pestsToRemove);
         pestKillPlant();
-    }
 
+    }
+    
 
 }

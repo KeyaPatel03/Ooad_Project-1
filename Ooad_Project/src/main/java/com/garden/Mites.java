@@ -11,7 +11,7 @@ public class Mites extends Insect {
         super("Mites", caterpillar, 0, 0);
     }
 
-    private static int getDamageByPlant(String plantType) {
+    public int getDamageByPlant(String plantType) {
         switch (plantType.toLowerCase()) {
             case "rose":
                 return 7;

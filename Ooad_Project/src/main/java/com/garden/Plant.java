@@ -166,6 +166,7 @@ public class Plant {
                 ", waterRequirement=" + waterRequirement +
                 ", temperature=" + temperature +
                 ", isAlive=" + isAlive +
+                ", health=" + health +
                 '}';
     }
 }

@@ -48,5 +48,7 @@ public abstract class Insect {
     public void setCol(int col) {
         this.col = col;
     }
+
+    abstract int getDamageByPlant(String plantType);
 }
 
