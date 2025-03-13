@@ -1450,3 +1450,42 @@
 [INFO ] 2025-03-12 18:49:44.005 [JavaFX Application Thread] GardenController - Planting plants
 [INFO ] 2025-03-12 18:49:44.578 [JavaFX Application Thread] GardenController - Planting plants
 [INFO ] 2025-03-12 18:49:45.246 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 18:58:35.098 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true, health=100}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true, health=100}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true, health=100}]
+[INFO ] 2025-03-12 18:58:35.134 [rainThread] RainController - Simulating rain of 2 units.
+[INFO ] 2025-03-12 18:58:35.138 [temperatureThread] GardenSimulatorAPI - Temperature reached 50 F
+[WARN ] 2025-03-12 18:58:35.149 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
+[INFO ] 2025-03-12 18:58:35.149 [temperatureThread] TemperatureController - Adjusting temperature to 50 °F.
+[INFO ] 2025-03-12 18:58:35.149 [rainThread] SprinklerController - Activating sprinklers, providing an average of 21 units of water to all plants.
+[INFO ] 2025-03-12 18:58:35.150 [rainThread] GardenSimulatorAPI - It rained 2 units
+[INFO ] 2025-03-12 18:58:38.742 [main] GardenSimulator - ---------------- End of Day 1 of Garden simulation -----------------
+[INFO ] 2025-03-12 18:58:38.743 [main] GardenSimulatorAPI - Parasite Aphids infested the garden
+[INFO ] 2025-03-12 18:58:38.744 [main] PestAttackController - Simulating pest attack: Aphids
+[INFO ] 2025-03-12 18:58:38.744 [temperatureThread] GardenSimulatorAPI - Temperature reached 60 F
+[WARN ] 2025-03-12 18:58:38.744 [main] PestAttackController - Plant Rose has been killed by a Aphids pest attack.
+[INFO ] 2025-03-12 18:58:38.745 [temperatureThread] TemperatureController - Adjusting temperature to 60 °F.
+[INFO ] 2025-03-12 18:58:42.347 [main] GardenSimulator - ---------------- End of Day 2 of Garden simulation -----------------
+[INFO ] 2025-03-12 18:58:42.350 [main] GardenSimulatorAPI - Parasite Slugs infested the garden
+[INFO ] 2025-03-12 18:58:42.350 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2025-03-12 18:58:42.351 [main] PesticideController - Skipping pesticide application on Rose as it is not alive.
+[INFO ] 2025-03-12 18:58:42.350 [temperatureThread] GardenSimulatorAPI - Temperature reached 45 F
+[INFO ] 2025-03-12 18:58:42.352 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2025-03-12 18:58:42.352 [temperatureThread] TemperatureController - Adjusting temperature to 45 °F.
+[INFO ] 2025-03-12 18:58:42.352 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2025-03-12 18:58:42.353 [main] PestAttackController - Simulating pest attack: Slugs
+[INFO ] 2025-03-12 18:58:42.353 [main] PestAttackController - Pesticide protects Tomato from the Slugs pest attack.
+[INFO ] 2025-03-12 18:58:45.957 [main] GardenSimulator - ---------------- End of Day 3 of Garden simulation -----------------
+[INFO ] 2025-03-12 18:58:45.958 [main] GardenSimulatorAPI - Parasite Whiteflies infested the garden
+[INFO ] 2025-03-12 18:58:45.958 [temperatureThread] GardenSimulatorAPI - Temperature reached 25 F
+[INFO ] 2025-03-12 18:58:45.959 [temperatureThread] TemperatureController - Adjusting temperature to 25 °F.
+[WARN ] 2025-03-12 18:58:45.959 [temperatureThread] TemperatureController - Detected low temperature of 25 which is below 40. Activating Garden Heating system
+[INFO ] 2025-03-12 18:58:45.958 [main] PestAttackController - Simulating pest attack: Whiteflies
+[INFO ] 2025-03-12 18:58:45.960 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2025-03-12 18:58:45.960 [main] PestAttackController - Pest Whiteflies does not have any impact for any of the plants
+[INFO ] 2025-03-12 18:58:49.561 [main] GardenSimulator - ---------------- End of Day 4 of Garden simulation -----------------
+[INFO ] 2025-03-12 18:58:49.562 [main] GardenSimulatorAPI - Parasite Weevils infested the garden
+[INFO ] 2025-03-12 18:58:49.562 [main] PestAttackController - Simulating pest attack: Weevils
+[INFO ] 2025-03-12 18:58:49.562 [main] PestAttackController - Pesticide protects Orange from the Weevils pest attack.
+[INFO ] 2025-03-12 18:58:49.562 [temperatureThread] GardenSimulatorAPI - Temperature reached 30 F
+[INFO ] 2025-03-12 18:58:49.563 [temperatureThread] TemperatureController - Adjusting temperature to 30 °F.
+[WARN ] 2025-03-12 18:58:49.563 [temperatureThread] TemperatureController - Detected low temperature of 30 which is below 40. Activating Garden Heating system
+[INFO ] 2025-03-12 18:58:49.563 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.

@@ -4,6 +4,7 @@
       "name": "Rose",
       "waterRequirement": 20,
       "temperature": 22,
+      "health": 100,
       "parasites": [
         "Aphids",
         "Spider mites"
@@ -13,6 +14,7 @@
       "name": "Tomato",
       "waterRequirement": 15,
       "temperature": 18,
+      "health": 100,
       "parasites": [
         "Nematodes",
         "Slugs"
@@ -22,6 +24,7 @@
       "name": "Orange",
       "waterRequirement": 25,
       "temperature": 24,
+      "health": 100,
       "parasites": [
         "Weevils",
         "Leafhoppers"
