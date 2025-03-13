@@ -405,6 +405,9 @@ public class ViewController {
         if (!occupiedCells.isEmpty()) {
             // pests();
         }
+        for (Plant plant : plantsList){
+            System.out.println(plant);
+        }
         
         day++;
     }
@@ -575,9 +578,7 @@ public class ViewController {
 
         // Remove pests from the list
         insects.removeAll(pestsToRemove);
-        pestKillPlant();
+        //pestKillPlant();
     }
-
-    
 
 }
