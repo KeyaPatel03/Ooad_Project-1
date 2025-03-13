@@ -5,7 +5,7 @@ import java.util.Objects;
 import javafx.scene.image.Image;
 
 public class Beetle extends Insect {
-    private static final Image caterpillar = new Image(Objects.requireNonNull(Beetle.class.getResourceAsStream("/images/beetle.png")));
+    private static final Image caterpillar = new Image(Objects.requireNonNull(Beetle.class.getResourceAsStream("/images/bettle.png")));
 
     public Beetle() {
         super("Beetle", caterpillar, 0, 0);

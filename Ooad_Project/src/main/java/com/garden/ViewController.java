@@ -424,7 +424,7 @@ public class ViewController {
                 }
             }
         }));
-        timeline.setCycleCount(100);
+        timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         iterateDayButton.setDisable(true);
     }
