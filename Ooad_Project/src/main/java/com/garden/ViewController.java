@@ -49,7 +49,10 @@ public class ViewController {
     private static final Image sunnyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/sunny.png")));
     private static final Image rainyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.png")));
     public static final Image orange = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/orange.png")));
-    public static final Image tomato = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/tomato.png")));
+    public static final Image lemon = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/lemon.png")));
+    public static final Image pine = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pine.png")));
+    public static final Image maple = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/maple.png")));
+
     public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
     private static final Image roseImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rose.png")));
     private static final Image pestiside = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pestiside.png")));
@@ -80,9 +83,13 @@ public class ViewController {
     @FXML
     private RadioButton roseButton;
     @FXML
+    private RadioButton mapleButton;
+    @FXML
+    private RadioButton pineButton;
+    @FXML
     private RadioButton OrangeButton;
     @FXML
-    private RadioButton TomatoButton;
+    private RadioButton lemonButton;
     @FXML
     private HBox imageBox = new HBox();
     @FXML
@@ -171,8 +178,14 @@ public class ViewController {
                 if (OrangeButton.isSelected()) {
                     plantOrange(row, col);
                 }
-                if (TomatoButton.isSelected()) {
-                    plantTomato(row, col);
+                if (lemonButton.isSelected()) {
+                    plantLemon(row, col);
+                }
+                if (pineButton.isSelected()) {
+                    plantPine(row, col);
+                }
+                if (mapleButton.isSelected()) {
+                    plantMaple(row, col);
                 }
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
@@ -220,8 +233,8 @@ public class ViewController {
         plantsList.add(Orange);
     }
 
-    //planting a Tomato; create Tomato object and add it to the grid
-    public void plantTomato(int row, int col) throws FileNotFoundException {
+    //planting a Lemon; create Tomato object and add it to the grid
+    public void plantLemon(int row, int col) throws FileNotFoundException {
         String cell = row + "," + col;
         if (occupiedCells.contains(cell)) {
             return;
@@ -230,13 +243,50 @@ public class ViewController {
         ImageView plantView = new ImageView();
         plantView.setFitHeight(65);
         plantView.setFitWidth(65);
-        plantView.setImage(tomato);
+        plantView.setImage(lemon);
         imageBox.getChildren().add(plantView);
         occupiedCells.add(cell);
-        Tomato Tomato = new Tomato(gardenGrid);
-        plantImageViewMap.put(Tomato, plantView);
-        plantsList.add(Tomato);
+        Lemon lemon = new Lemon(gardenGrid);
+        plantImageViewMap.put(lemon, plantView);
+        plantsList.add(lemon);
     }
+
+    //planting a Pine; create Orange object and add it to the grid
+    public void plantPine(int row, int col) throws FileNotFoundException {
+        String cell = row + "," + col;
+        if (occupiedCells.contains(cell)) {
+            return;
+        }
+        HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+        ImageView plantView = new ImageView();
+        plantView.setFitHeight(65);
+        plantView.setFitWidth(65);
+        plantView.setImage(pine);
+        imageBox.getChildren().add(plantView);
+        occupiedCells.add(cell);
+        Pine pine = new Pine(gardenGrid);
+        plantImageViewMap.put(pine, plantView);
+        plantsList.add(pine);
+    }
+
+    //planting a Maple tree ; creating rose object and adding it to the gird
+    public void plantMaple(int row, int col) throws FileNotFoundException {
+        String mapleCell = row + "," + col;
+        if (occupiedCells.contains(mapleCell)) {
+            return;
+        }
+        HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+        ImageView plantView = new ImageView();
+        plantView.setFitHeight(65);
+        plantView.setFitWidth(65);
+        plantView.setImage(maple);
+        imageBox.getChildren().add(plantView);
+        occupiedCells.add(mapleCell);
+        Maple maple = new Maple(gardenGrid);
+        plantImageViewMap.put(maple, plantView);
+        plantsList.add(maple);
+    }
+
     public void activateHeating() {
         int temperature = heatingController.activateHeating();
         // Updates UI with temperature
