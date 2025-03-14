@@ -1489,6 +1489,7 @@
 [INFO ] 2025-03-12 18:58:49.563 [temperatureThread] TemperatureController - Adjusting temperature to 30 °F.
 [WARN ] 2025-03-12 18:58:49.563 [temperatureThread] TemperatureController - Detected low temperature of 30 which is below 40. Activating Garden Heating system
 [INFO ] 2025-03-12 18:58:49.563 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+<<<<<<< HEAD
 [INFO ] 2025-03-12 19:57:48.208 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true, health=100}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true, health=100}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true, health=100}]
 [INFO ] 2025-03-12 19:57:48.268 [rainThread] RainController - Simulating rain of 2 units.
 [WARN ] 2025-03-12 19:57:48.270 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
@@ -1578,3 +1579,183 @@
 [INFO ] 2025-03-12 20:50:37.618 [JavaFX Application Thread] GardenController - Planting plants
 [INFO ] 2025-03-12 20:50:38.589 [JavaFX Application Thread] GardenController - Planting plants
 [INFO ] 2025-03-12 20:50:39.313 [JavaFX Application Thread] GardenController - Planting plants
+=======
+[INFO ] 2025-03-12 19:13:30.315 [main] GardenSimulatorAPI - Garden initialized with plants: [Plant{name='Rose', currentWaterLevel=0, waterRequirement=22, temperature=20, isAlive=true, health=100}, Plant{name='Tomato', currentWaterLevel=0, waterRequirement=18, temperature=15, isAlive=true, health=100}, Plant{name='Orange', currentWaterLevel=0, waterRequirement=24, temperature=25, isAlive=true, health=100}]
+[INFO ] 2025-03-12 19:13:30.426 [rainThread] RainController - Simulating rain of 2 units.
+[INFO ] 2025-03-12 19:13:30.426 [temperatureThread] GardenSimulatorAPI - Temperature reached 50 F
+[INFO ] 2025-03-12 19:13:30.427 [temperatureThread] TemperatureController - Adjusting temperature to 50 °F.
+[WARN ] 2025-03-12 19:13:30.427 [rainThread] RainController - Insufficient rainfall received 2 units which is below the 5. Activating sprinkler system.
+[INFO ] 2025-03-12 19:13:30.427 [rainThread] SprinklerController - Activating sprinklers, providing an average of 21 units of water to all plants.
+[INFO ] 2025-03-12 19:13:30.427 [rainThread] GardenSimulatorAPI - It rained 2 units
+[INFO ] 2025-03-12 19:13:34.039 [main] GardenSimulator - ---------------- End of Day 1 of Garden simulation -----------------
+[INFO ] 2025-03-12 19:13:34.040 [main] GardenSimulatorAPI - Parasite Aphids infested the garden
+[INFO ] 2025-03-12 19:13:34.040 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2025-03-12 19:13:34.040 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2025-03-12 19:13:34.041 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2025-03-12 19:13:34.041 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2025-03-12 19:13:34.042 [main] PestAttackController - Simulating pest attack: Aphids
+[INFO ] 2025-03-12 19:13:34.042 [main] PestAttackController - Pesticide protects Rose from the Aphids pest attack.
+[INFO ] 2025-03-12 19:13:34.041 [temperatureThread] GardenSimulatorAPI - Temperature reached 60 F
+[INFO ] 2025-03-12 19:13:34.043 [temperatureThread] TemperatureController - Adjusting temperature to 60 °F.
+[INFO ] 2025-03-12 19:13:37.653 [main] GardenSimulator - ---------------- End of Day 2 of Garden simulation -----------------
+[INFO ] 2025-03-12 19:13:37.653 [main] GardenSimulatorAPI - Parasite Slugs infested the garden
+[INFO ] 2025-03-12 19:13:37.653 [main] PestAttackController - Simulating pest attack: Slugs
+[INFO ] 2025-03-12 19:13:37.654 [main] PestAttackController - Pesticide protects Tomato from the Slugs pest attack.
+[INFO ] 2025-03-12 19:13:37.654 [temperatureThread] GardenSimulatorAPI - Temperature reached 45 F
+[INFO ] 2025-03-12 19:13:37.656 [temperatureThread] TemperatureController - Adjusting temperature to 45 °F.
+[INFO ] 2025-03-12 19:13:41.260 [main] GardenSimulator - ---------------- End of Day 3 of Garden simulation -----------------
+[INFO ] 2025-03-12 19:13:41.260 [main] GardenSimulatorAPI - Parasite Whiteflies infested the garden
+[INFO ] 2025-03-12 19:13:41.260 [main] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2025-03-12 19:13:41.260 [main] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2025-03-12 19:13:41.260 [main] PesticideController - Pesticide applied to Tomato to enhance resistance against pests.
+[INFO ] 2025-03-12 19:13:41.260 [temperatureThread] GardenSimulatorAPI - Temperature reached 25 F
+[INFO ] 2025-03-12 19:13:41.261 [temperatureThread] TemperatureController - Adjusting temperature to 25 °F.
+[INFO ] 2025-03-12 19:13:41.261 [main] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[WARN ] 2025-03-12 19:13:41.261 [temperatureThread] TemperatureController - Detected low temperature of 25 which is below 40. Activating Garden Heating system
+[INFO ] 2025-03-12 19:13:41.261 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2025-03-12 19:13:41.261 [main] PestAttackController - Simulating pest attack: Whiteflies
+[INFO ] 2025-03-12 19:13:41.261 [main] PestAttackController - Pest Whiteflies does not have any impact for any of the plants
+[INFO ] 2025-03-12 19:13:44.862 [main] GardenSimulator - ---------------- End of Day 4 of Garden simulation -----------------
+[INFO ] 2025-03-12 19:13:44.863 [main] GardenSimulatorAPI - Parasite Weevils infested the garden
+[INFO ] 2025-03-12 19:13:44.863 [main] PestAttackController - Simulating pest attack: Weevils
+[INFO ] 2025-03-12 19:13:44.863 [main] PestAttackController - Pesticide protects Orange from the Weevils pest attack.
+[INFO ] 2025-03-12 19:13:44.864 [temperatureThread] GardenSimulatorAPI - Temperature reached 30 F
+[INFO ] 2025-03-12 19:13:44.864 [temperatureThread] TemperatureController - Adjusting temperature to 30 °F.
+[WARN ] 2025-03-12 19:13:44.864 [temperatureThread] TemperatureController - Detected low temperature of 30 which is below 40. Activating Garden Heating system
+[INFO ] 2025-03-12 19:13:44.864 [temperatureThread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2025-03-12 19:13:45.624 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:46.734 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:47.792 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:48.474 [main] GardenSimulator - ---------------- End of Day 5 of Garden simulation -----------------
+[INFO ] 2025-03-12 19:13:48.475 [main] GardenSimulatorAPI - Alive Plants : [Rose, Tomato, Orange]
+[INFO ] 2025-03-12 19:13:48.476 [main] GardenSimulatorAPI - Dead Plants : []
+[INFO ] 2025-03-12 19:13:48.741 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:51.321 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:52.300 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:53.266 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:55.878 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:56.991 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:57.889 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:58.685 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:13:59.644 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:01.120 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:04.077 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:07.249 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:08.130 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:09.442 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:10.423 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:11.382 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:14.329 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:15.935 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:17.332 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:18.265 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:19.119 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:20.067 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:20.954 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:21.742 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:22.579 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:23.431 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:24.438 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:25.227 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:14:26.763 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:35.950 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:37.098 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:37.877 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:50.454 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:53.125 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:54.272 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:55.691 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:57.162 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:57.585 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:58.007 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:58.402 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:58.698 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:15:59.583 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:00.225 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:00.538 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:01.413 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:03.500 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:03.793 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:04.140 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:04.390 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:04.682 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:05.032 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:05.429 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:06.665 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:07.611 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:08.309 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:08.837 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:09.295 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:09.827 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:10.159 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:11.618 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:11.883 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:12.219 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:12.637 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:12.920 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:13.250 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:13.681 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:14.114 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:14.523 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:14.917 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:15.286 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:15.628 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:16.016 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 19:16:16.244 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:08:44.726 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:09:07.166 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:13:14.950 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:14:32.246 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:14:33.765 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:14:36.298 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:14:38.972 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-12 21:14:41.757 [JavaFX Application Thread] GardenController - Planting plants
+>>>>>>> bdbbb82d5ae9bbab94e3553ff85801cdfb953cd7
+[INFO ] 2025-03-13 15:35:48.143 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:48.661 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:49.443 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:51.982 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:52.633 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:55.282 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:55.804 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:35:56.803 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:36:59.052 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:37:00.474 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:37:01.638 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:37:41.450 [JavaFX Application Thread] RainController - Simulating rain of 10 units.
+[INFO ] 2025-03-13 15:37:41.457 [JavaFX Application Thread] GardenController - Sufficient rainfall received. No need to activate sprinklers.
+[INFO ] 2025-03-13 15:37:55.238 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2025-03-13 15:37:55.238 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.239 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.239 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.239 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.239 [JavaFX Application Thread] PesticideController - Pesticide applied to Pine to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.240 [JavaFX Application Thread] PesticideController - Pesticide applied to Pine to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.240 [JavaFX Application Thread] PesticideController - Pesticide applied to Maple to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.240 [JavaFX Application Thread] PesticideController - Pesticide applied to Maple to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:55.240 [JavaFX Application Thread] PesticideController - Pesticide applied to Maple to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.779 [JavaFX Application Thread] PesticideController - Applying pesticides to all plants to prevent pest attacks.
+[INFO ] 2025-03-13 15:37:56.780 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.780 [JavaFX Application Thread] PesticideController - Pesticide applied to Rose to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.780 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.780 [JavaFX Application Thread] PesticideController - Pesticide applied to Orange to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.781 [JavaFX Application Thread] PesticideController - Pesticide applied to Pine to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.781 [JavaFX Application Thread] PesticideController - Pesticide applied to Pine to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.781 [JavaFX Application Thread] PesticideController - Pesticide applied to Maple to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.781 [JavaFX Application Thread] PesticideController - Pesticide applied to Maple to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:56.781 [JavaFX Application Thread] PesticideController - Pesticide applied to Maple to enhance resistance against pests.
+[INFO ] 2025-03-13 15:37:59.027 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 11 units of water to all plants.
+[INFO ] 2025-03-13 15:38:01.469 [JavaFX Application Thread] TemperatureController - Adjusting temperature to 24 °F.
+[WARN ] 2025-03-13 15:38:01.469 [JavaFX Application Thread] TemperatureController - Detected low temperature of 24 which is below 40. Activating Garden Heating system
+[INFO ] 2025-03-13 15:38:01.469 [JavaFX Application Thread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[INFO ] 2025-03-13 15:38:01.469 [JavaFX Application Thread] HeatingController - Activating heating system to increase temperature to 50 °F.
+[WARN ] 2025-03-13 15:38:01.470 [JavaFX Application Thread] GardenController - Warning: Low temperature detected. Heating system activated. Current temperature: 50°F
+[INFO ] 2025-03-13 15:38:11.853 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:13.693 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:14.852 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:19.638 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:21.355 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:22.348 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:23.485 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:26.391 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-13 15:38:27.417 [JavaFX Application Thread] GardenController - Planting plants

@@ -21,7 +21,7 @@
 
     <!-- Right Sidebar -->
     <right>
-        <VBox prefWidth="200.0" style="-fx-background-color: #e4f8da;" spacing="20" BorderPane.alignment="CENTER">
+        <VBox prefWidth="200.0" style="-fx-background-color: #e4f8da;" spacing="15" BorderPane.alignment="CENTER">
             <children>
                 <!-- Weather Condition Section -->
                 <Label text="Weather Condition" style="-fx-font-size: 16px; -fx-text-fill: #000000;" />
@@ -29,13 +29,15 @@
                 <Label fx:id="weatherLabel" text="Sunny" style="-fx-font-size: 14px; -fx-text-fill: #000000;" />
 
                 <Label text="Select Plant Type" style="-fx-font-size: 16px; -fx-text-fill: #000000;" />
-                <RadioButton fx:id="roseButton" text="Rose">
+                <RadioButton fx:id="roseButton" text="Rose Plant">
                     <toggleGroup>
                         <ToggleGroup fx:id="plantType" />
                     </toggleGroup>
                 </RadioButton>
-                <RadioButton fx:id="OrangeButton" text="Orange" toggleGroup="$plantType" />
-                <RadioButton fx:id="TomatoButton" text="Tomato" toggleGroup="$plantType" />
+                <RadioButton fx:id="OrangeButton" text="Orange Tree" toggleGroup="$plantType" />
+                <RadioButton fx:id="lemonButton" text="Lemon Tree" toggleGroup="$plantType"/>
+                <RadioButton fx:id="pineButton" text="Pine Tree" toggleGroup="$plantType" />
+                <RadioButton fx:id="mapleButton" text="Maple Tree" toggleGroup="$plantType" />
 
                 <Label text="Select the Function" style="-fx-font-size: 16px; -fx-text-fill: #000000;" />
                 <Button fx:id="heatingButton" onAction="#adjustTemperature" text="Handle Temperature" style="-fx-background-color: #ffcccb;" />
