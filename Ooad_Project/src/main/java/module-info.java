@@ -4,6 +4,7 @@ module com.garden {
     requires java.logging;
     requires org.apache.logging.log4j;
     requires org.json;
+    requires javafx.graphics;
 
 
     opens com.garden to javafx.fxml;

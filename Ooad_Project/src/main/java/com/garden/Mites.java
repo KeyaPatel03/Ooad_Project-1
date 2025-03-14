@@ -15,13 +15,13 @@ public class Mites extends Insect {
         switch (plantType.toLowerCase()) {
             case "rose":
                 return 7;
-            case "cherry":
+            case "maple":
                 return 5;
-            case "tomato":
+            case "lemon":
                 return 4;
-            case "strawberry":
-                return 6;
             case "orange":
+                return 6;
+            case "pine":
                 return 6;
             default:
                 return 3;

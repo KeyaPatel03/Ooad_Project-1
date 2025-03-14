@@ -23,6 +23,8 @@ import static com.garden.Pest.pests;
 import static com.garden.Plant.plantImageViewMap;
 import static com.garden.Plant.plantsList;
 
+import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
@@ -30,6 +32,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,6 +44,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 
@@ -49,14 +55,16 @@ public class ViewController {
     private static final Image sunnyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/sunny.png")));
     private static final Image rainyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.png")));
     public static final Image orange = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/orange.png")));
-    public static final Image lemon = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/lemon.png")));
-    public static final Image pine = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pine.png")));
-    public static final Image maple = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/maple.png")));
+    public static final Image tomato = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/tomato.png")));
 
+    public static final Image rain = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.webp")));
     public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
     private static final Image roseImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rose.png")));
     private static final Image pestiside = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pestiside.png")));
     private static final Image soilImage = new Image("file:cc.jfif");
+    public static final Image lemon = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/lemon.png")));
+    public static final Image pine = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pine.png")));
+    public static final Image maple = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/maple.png")));
 
     private static final Image caterpillar = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/caterpillar.png")));
     public static Set<String> occupiedCells = new HashSet<>();
@@ -83,13 +91,9 @@ public class ViewController {
     @FXML
     private RadioButton roseButton;
     @FXML
-    private RadioButton mapleButton;
-    @FXML
-    private RadioButton pineButton;
-    @FXML
     private RadioButton OrangeButton;
     @FXML
-    private RadioButton lemonButton;
+    private RadioButton TomatoButton;
     @FXML
     private HBox imageBox = new HBox();
     @FXML
@@ -159,8 +163,6 @@ public class ViewController {
                 userInfoLabel.setText("   Today is Day 1");
             }
         }
-
-
     }
 
     //this is our method to call each plant method depending on which button is selected
@@ -178,15 +180,7 @@ public class ViewController {
                 if (OrangeButton.isSelected()) {
                     plantOrange(row, col);
                 }
-                if (lemonButton.isSelected()) {
-                    plantLemon(row, col);
-                }
-                if (pineButton.isSelected()) {
-                    plantPine(row, col);
-                }
-                if (mapleButton.isSelected()) {
-                    plantMaple(row, col);
-                }
+                
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
@@ -210,6 +204,8 @@ public class ViewController {
         imageBox.getChildren().add(plantView);
         occupiedCells.add(roseCell);
         Rose rose = new Rose(gardenGrid);
+        rose.setRow(row);           
+        rose.setCol(col);  
         plantImageViewMap.put(rose, plantView);
         plantsList.add(rose);
     }
@@ -229,11 +225,12 @@ public class ViewController {
         imageBox.getChildren().add(plantView);
         occupiedCells.add(cell);
         Orange Orange = new Orange(gardenGrid);
+        Orange.setRow(row);           
+        Orange.setCol(col); 
         plantImageViewMap.put(Orange, plantView);
         plantsList.add(Orange);
     }
 
-    //planting a Lemon; create Tomato object and add it to the grid
     public void plantLemon(int row, int col) throws FileNotFoundException {
         String cell = row + "," + col;
         if (occupiedCells.contains(cell)) {
@@ -247,6 +244,8 @@ public class ViewController {
         imageBox.getChildren().add(plantView);
         occupiedCells.add(cell);
         Lemon lemon = new Lemon(gardenGrid);
+        lemon.setRow(row);
+        lemon.setCol(col);
         plantImageViewMap.put(lemon, plantView);
         plantsList.add(lemon);
     }
@@ -265,6 +264,8 @@ public class ViewController {
         imageBox.getChildren().add(plantView);
         occupiedCells.add(cell);
         Pine pine = new Pine(gardenGrid);
+        pine.setCol(col);
+        pine.setRow(row);
         plantImageViewMap.put(pine, plantView);
         plantsList.add(pine);
     }
@@ -283,10 +284,29 @@ public class ViewController {
         imageBox.getChildren().add(plantView);
         occupiedCells.add(mapleCell);
         Maple maple = new Maple(gardenGrid);
+        maple.setCol(col);
+        maple.setRow(row);
         plantImageViewMap.put(maple, plantView);
         plantsList.add(maple);
     }
 
+    //planting a Tomato; create Tomato object and add it to the grid
+    // public void plantTomato(int row, int col) throws FileNotFoundException {
+    //     String cell = row + "," + col;
+    //     if (occupiedCells.contains(cell)) {
+    //         return;
+    //     }
+    //     HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    //     ImageView plantView = new ImageView();
+    //     plantView.setFitHeight(65);
+    //     plantView.setFitWidth(65);
+    //     plantView.setImage(tomato);
+    //     imageBox.getChildren().add(plantView);
+    //     occupiedCells.add(cell);
+    //     Tomato Tomato = new Tomato(gardenGrid);
+    //     plantImageViewMap.put(Tomato, plantView);
+    //     plantsList.add(Tomato);
+    // }
     public void activateHeating() {
         int temperature = heatingController.activateHeating();
         // Updates UI with temperature
@@ -322,30 +342,60 @@ public class ViewController {
             pests.removeAll(pestsToRemove);
         });
     }
+    
     @FXML
-    private void activateRain(ActionEvent event) {
-        logMessage("Activated Rainfall");
-        int rainfallAmount = 10; // Set the desired rainfall amount
-        rainController.simulateRain(rainfallAmount, plantsList);
-        adjustSprinklersBasedOnRainfall(rainfallAmount);
-        Platform.runLater(() -> {
-            weatherLabel.setText("RAINY");
-            weatherImageView.setImage(rainyImage);
+    private ImageView rainGifImageView; // The ImageView for the raining GIF
+    
+    @FXML
+private void activateRain(ActionEvent event) {
+    logMessage("Activated Rainfall");
+
+    // Set the rainfall amount and simulate rain
+    int rainfallAmount = 10; // Set the desired rainfall amount
+    rainController.simulateRain(rainfallAmount, plantsList);
+    adjustSprinklersBasedOnRainfall(rainfallAmount);
+
+    // Set the background label text to 'RAINY' and show the rain image
+    Platform.runLater(() -> {
+        weatherLabel.setText("RAINY");
+        weatherImageView.setImage(rainyImage);
+
+        // Load the rain GIF into the ImageView
+        String imageUrl = getClass().getResource("/images/rain.gif").toExternalForm();
+        Image rainGif = new Image(imageUrl);
+
+        // Ensure the rain GIF is visible
+        rainGifImageView.setImage(rainGif);
+        rainGifImageView.setVisible(true);
+
+        // Ensure the GIF is appropriately sized to fit the screen
+        rainGifImageView.setFitWidth(gardenGrid.getWidth());  // Adjust to fit your layout
+        rainGifImageView.setFitHeight(gardenGrid.getHeight());  // Adjust to fit your layout
+
+        // Optional: Add fade-in animation to make the rain effect smoother
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), rainGifImageView);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+
+        // Schedule weather to return to sunny after 10 seconds
+        Timeline weatherResetTimeline = new Timeline(new KeyFrame(
+                Duration.seconds(10),
+                e -> {
+                    weatherLabel.setText("Sunny");
+                    weatherImageView.setImage(sunnyImage);
+
+                    // Hide the raining GIF when the rain stops
+                    rainGifImageView.setVisible(false);
+                }
+        ));
+        weatherResetTimeline.play();
+    });
+}
 
 
-            // Schedule weather to return to sunny after 10 seconds
-            Timeline weatherResetTimeline = new Timeline(new KeyFrame(
-                    Duration.seconds(10),
-                    e -> {
-                        weatherLabel.setText("Sunny");
-                        weatherImageView.setImage(sunnyImage);
 
-                    }
-            ));
-            weatherResetTimeline.play();
-        });
 
-    }
     private void adjustSprinklersBasedOnRainfall(int rainfallAmount) {
         Platform.runLater(() -> {
 
@@ -474,7 +524,7 @@ public class ViewController {
                 }
             }
         }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setCycleCount(Timeline.INDEFINITE); 
         timeline.play();
         iterateDayButton.setDisable(true);
     }
@@ -512,6 +562,7 @@ public class ViewController {
                 // Add the ImageView to the HBox in the grid
                 imageBox.getChildren().add(pestView);
                 Insect newInsect = createInsectInstance(insect);  
+                decreaseHealth(row,col, newInsect);
                 // Update the pestImageViewMap to associate the insect with its ImageView
                 pestImageViewMap.put(newInsect, pestView);
                 
@@ -630,5 +681,24 @@ public class ViewController {
         insects.removeAll(pestsToRemove);
         //pestKillPlant();
     }
+
+    public void decreaseHealth(int row, int col, Insect insect) {
+        System.out.println("In decreaseHealth method");
+        
+        for (Plant plant : plantsList) {
+            System.out.println("Checking plant: " + plant.getName() + " at (" + plant.getRow() + ", " + plant.getCol() + ")");
+            
+            if (plant.getRow() == row && plant.getCol() == col) {
+                int damage = insect.getDamageByPlant(plant.getName().toLowerCase());
+                System.out.println("Damage caused by insect: " + damage);
+                
+                plant.takeDamage(damage);
+                
+                System.out.println("Plant after insect attack: " + plant);
+                break; // Stop after finding the matching plant
+            }
+        }
+    }
+    
 
 }

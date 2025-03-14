@@ -51,7 +51,6 @@
         </VBox>
     </right>
 
-    <!-- Center: Garden Grid -->
     <center>
         <GridPane fx:id="gardenGrid" gridLinesVisible="True" onMouseClicked="#plantPlants"
                   styleClass="grid-pane">

@@ -158,6 +158,10 @@ public class Plant {
         this.health = health;
     }
 
+    public void decreaseHealth(int damage) {
+        this.health = Math.max(0, this.health - damage);
+    }
+
     @Override
     public String toString() {
         return "Plant{" +
