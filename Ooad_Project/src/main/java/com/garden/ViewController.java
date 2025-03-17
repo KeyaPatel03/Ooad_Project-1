@@ -56,7 +56,7 @@ public class ViewController {
     private static final Image sunnyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/sunny.png")));
     private static final Image rainyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.png")));
     public static final Image orange = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/orange.png")));
-    public static final Image tomato = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/tomato.png")));
+    private static final Image sprinkler = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/sprinkler.png")));
 
     public static final Image rain = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.webp")));
     public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
@@ -70,6 +70,7 @@ public class ViewController {
     private static final Image caterpillar = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/caterpillar.png")));
     public static Set<String> occupiedCells = new HashSet<>();
     public static ArrayList<String> occupiedPestCells = new ArrayList<>();
+
     private HeatingController heatingController;
     private SprinklerController sprinklerController;
     private PesticideController pesticideController;
@@ -94,15 +95,12 @@ public class ViewController {
     @FXML
     private RadioButton OrangeButton;
     @FXML
-    private RadioButton lemonButton;
+    public RadioButton lemonButton;
     @FXML
     private RadioButton pineButton;
     @FXML
     private RadioButton mapleButton;
     @FXML
-    private HBox imageBox = new HBox();
-    @FXML
-    private HBox weatherBox = new HBox();
     private Timeline timeline;
     @FXML
     private Label userInfoLabel;
@@ -185,14 +183,14 @@ public class ViewController {
                 if (OrangeButton.isSelected()) {
                     plantOrange(row, col);
                 }
-                if(pineButton.isSelected()){
+                if (lemonButton.isSelected()) {
+                    plantLemon(row, col);
+                }
+                if (pineButton.isSelected()) {
                     plantPine(row, col);
                 }
-                if(mapleButton.isSelected()){
+                if (mapleButton.isSelected()) {
                     plantMaple(row, col);
-                }
-                if(lemonButton.isSelected()){
-                    plantLemon(row, col);
                 }
                 
             } catch (FileNotFoundException e) {
@@ -433,33 +431,51 @@ public class ViewController {
     }
     
 
-    //planting a Tomato; create Tomato object and add it to the grid
-    // public void plantTomato(int row, int col) throws FileNotFoundException {
-    //     String cell = row + "," + col;
-    //     if (occupiedCells.contains(cell)) {
-    //         return;
-    //     }
-    //     HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
-    //     ImageView plantView = new ImageView();
-    //     plantView.setFitHeight(65);
-    //     plantView.setFitWidth(65);
-    //     plantView.setImage(tomato);
-    //     imageBox.getChildren().add(plantView);
-    //     occupiedCells.add(cell);
-    //     Tomato Tomato = new Tomato(gardenGrid);
-    //     plantImageViewMap.put(Tomato, plantView);
-    //     plantsList.add(Tomato);
-    // }
     public void activateHeating() {
         int temperature = heatingController.activateHeating();
         // Updates UI with temperature
     }
 
+    private boolean isSprinklerActive = false;
+
     public void activateSprinklers() {
+        if (isSprinklerActive) {
+            return; // Prevent multiple activations while sprinklers are active
+        }
+
         logMessage("Activated Sprinklers");
         sprinklerController.activateSprinklers(plantsList);
+        isSprinklerActive = true;
 
-        // Updates UI to indicate sprinklers are active
+        List<ImageView> activeSprinklers = new ArrayList<>();
+
+        for (String cell : occupiedCells) {
+            String[] parts = cell.split(",");
+            int row = Integer.parseInt(parts[0]);
+            int col = Integer.parseInt(parts[1]);
+
+            HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+
+            ImageView sprinklerView = new ImageView(sprinkler);
+            sprinklerView.setFitHeight(40);
+            sprinklerView.setFitWidth(45);
+
+            sprinklerView.setTranslateX(-85);
+            sprinklerView.setTranslateY(41);
+
+            imageBox.getChildren().add(sprinklerView);
+            activeSprinklers.add(sprinklerView);
+        }
+
+        // Schedule removal after 5 seconds
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        delay.setOnFinished(event -> {
+            for (ImageView sprinklerView : activeSprinklers) {
+                ((HBox) sprinklerView.getParent()).getChildren().remove(sprinklerView);
+            }
+            isSprinklerActive = false; // Reset flag after all sprinklers are removed
+        });
+        delay.play();
     }
 
     @FXML
@@ -488,52 +504,45 @@ public class ViewController {
     
     @FXML
     private ImageView rainGifImageView; // The ImageView for the raining GIF
-    
+
+    private boolean isRainActive = false;
     @FXML
-private void activateRain(ActionEvent event) {
-    logMessage("Activated Rainfall");
+    private void activateRain(ActionEvent event) {
+        if (isRainActive) {
+            return; // If rain is already active, do nothing
+        }
 
-    // Set the rainfall amount and simulate rain
-    int rainfallAmount = 10; // Set the desired rainfall amount
-    rainController.simulateRain(rainfallAmount, plantsList);
-    adjustSprinklersBasedOnRainfall(rainfallAmount);
+        logMessage("Activated Rainfall");
+        int rainfallAmount = 5; // Set desired rainfall amount
+        rainController.simulateRain(rainfallAmount, plantsList);
+        adjustSprinklersBasedOnRainfall(rainfallAmount);
 
-    // Set the background label text to 'RAINY' and show the rain image
-    Platform.runLater(() -> {
-        weatherLabel.setText("RAINY");
-        weatherImageView.setImage(rainyImage);
+        isRainActive = true; // Mark rain as active
 
-        // Load the rain GIF into the ImageView
-        String imageUrl = getClass().getResource("/images/rain.gif").toExternalForm();
-        Image rainGif = new Image(imageUrl);
+        Platform.runLater(() -> {
+            weatherLabel.setText("RAINY");
+            weatherImageView.setImage(rainyImage);
 
-        // Ensure the rain GIF is visible
-        rainGifImageView.setImage(rainGif);
-        rainGifImageView.setVisible(true);
+            // OPTIONAL: Display rain animation (e.g., overlaying rain image)
+            ImageView rainEffect = new ImageView(rainyImage);
+            rainEffect.setFitHeight(gardenGrid.getHeight());
+            rainEffect.setFitWidth(gardenGrid.getWidth());
+            rainEffect.setOpacity(0.7); // Make it semi-transparent
 
-        // Ensure the GIF is appropriately sized to fit the screen
-        rainGifImageView.setFitWidth(gardenGrid.getWidth());  // Adjust to fit your layout
-        rainGifImageView.setFitHeight(gardenGrid.getHeight());  // Adjust to fit your layout
+            imagePane.getChildren().add(rainEffect); // Add rain effect to UI
 
-        // Optional: Add fade-in animation to make the rain effect smoother
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), rainGifImageView);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        fadeIn.play();
-
-        // Schedule weather to return to sunny after 10 seconds
-        Timeline weatherResetTimeline = new Timeline(new KeyFrame(
-                Duration.seconds(10),
-                e -> {
-                    weatherLabel.setText("Sunny");
-                    weatherImageView.setImage(sunnyImage);
-
-                    // Hide the raining GIF when the rain stops
-                    rainGifImageView.setVisible(false);
-                }
-        ));
-        weatherResetTimeline.play();
-    });
+            // Schedule removal of rain effect and reset weather after 10 seconds
+            Timeline weatherResetTimeline = new Timeline(new KeyFrame(
+                    Duration.seconds(10),
+                    e -> {
+                        weatherLabel.setText("Sunny");
+                        weatherImageView.setImage(sunnyImage);
+                        imagePane.getChildren().remove(rainEffect); // Remove rain effect
+                        isRainActive = false; // Reset flag
+                    }
+            ));
+            weatherResetTimeline.play();
+        });
 }
 
 
