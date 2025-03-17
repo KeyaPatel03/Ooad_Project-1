@@ -32,12 +32,14 @@ import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -287,7 +289,7 @@ public class ViewController {
         StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
     
         // Create the health label
-        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji
+        Label healthLabel = new Label("💚 HP: 10");  // Adding a green heart emoji
         healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
     
         // Add the plant image and health label to the StackPane
@@ -685,40 +687,62 @@ private void stopRain(Timeline rainTimeline) {
         Platform.runLater(() -> logArea.appendText(message + "\n"));
     }
 
-    //remove plant object from grid
     public void die() {
-        ArrayList<Plant> plants = new ArrayList<>();
-
-        for (Plant plant : plantsList) {
-            int col = plant.getCol();
-            int row = plant.getRow();
-            String cell = row + "," + col;
-            ImageView plantView = plantImageViewMap.get(plant);
-
-            if (plantView != null) {
-                // remove ImageView from grid
-                HBox imageBox = (HBox) plantView.getParent();
-                imageBox.getChildren().remove(plantView);
-
-                // remove association between Flower object and ImageView
-                plantImageViewMap.remove(plant);
-                //occupiedCells.remove(cell);
+        List<Plant> deadPlants = new ArrayList<>();
+        
+        // Iterate over the plantsList to find dead plants
+        for (Plant plant : new ArrayList<>(plantsList)) {
+            if (plant.getHealth() <= 0) {
+                int col = plant.getCol();
+                int row = plant.getRow();
+                String cell = row + "," + col;
+    
+                // Ensure gardenGrid is not null before proceeding
+                if (gardenGrid != null) {
+                    // Get the children of the GridPane
+                    ObservableList<Node> children = gardenGrid.getChildren();
+        
+                    // Iterate through the children to find the correct cell node
+                    for (Node node : children) {
+                        Integer rowIndex = GridPane.getRowIndex(node);  // Get the row index
+                        Integer colIndex = GridPane.getColumnIndex(node);  // Get the column index
+        
+                        // Default to -1 if the row or column index is null
+                        rowIndex = (rowIndex == null) ? -1 : rowIndex;
+                        colIndex = (colIndex == null) ? -1 : colIndex;
+        
+                        // Check if the node is in the correct row and column
+                        if (rowIndex == row && colIndex == col) {
+                            // Ensure that the node is a valid Pane before clearing its children
+                            if (node instanceof Pane) {
+                                Pane pane = (Pane) node;
+                                if (pane.getChildren() != null) {
+                                    pane.getChildren().clear(); // Clear the content in the cell
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                // Remove from tracking structures
                 occupiedCells.remove(cell);
-                plants.add(plant);
+                deadPlants.add(plant);
             }
         }
-
-        plantsList.removeAll(plants);
+        
+        // Remove dead plants from the main list
+        plantsList.removeAll(deadPlants);
     }
-
+    
 
     //incrementing each day and calling appropriate methods to run each day
     public void iterateDay() throws IOException {
         userInfoLabel.setText("Today is Day " + day);
+        die();
         Random random = new Random();
     
         // Random rain
-        int randomRain = random.nextInt(2);
+        int randomRain = random.nextInt(3);
         System.out.println("random rain = " + randomRain);
         if (randomRain == 1) {
             activateRain();
@@ -904,45 +928,55 @@ private void stopRain(Timeline rainTimeline) {
 
     public void pestControl() {
         List<Insect> pestsToRemove = new ArrayList<>();
-
+    
         for (Insect pest : insects) {
             Random ran = new Random();
             int rando = ran.nextInt(8);
-
+    
             String cell = pest.getRow() + "," + pest.getCol();
             if (rando != 1) {
                 ImageView spiderView = pestImageViewMap.get(pest);
-
+    
                 if (spiderView != null) {
-                    // Remove the insect's ImageView from the grid
+                    // Ensure that spiderView's parent (HBox) is not null
                     HBox imageBox = (HBox) spiderView.getParent();
-                    imageBox.getChildren().remove(spiderView);
-
-                    // Add the pesticide ImageView
-                    ImageView pesticideView = new ImageView(pestiside);
-                    pesticideView.setFitHeight(35);
-                    pesticideView.setFitWidth(35);
-                    imageBox.getChildren().add(pesticideView);
-
-                    // Track the pest for removal
-                    pestsToRemove.add(pest);
-
-                    pestImageViewMap.remove(pest);
-                    occupiedPestCells.remove(cell);
-
-                    // Remove the pesticide image after 2 seconds
-                    PauseTransition delay = new PauseTransition(Duration.seconds(2));
-                    delay.setOnFinished(event -> imageBox.getChildren().remove(pesticideView));
-                    delay.play();
+                    if (imageBox != null) {
+                        // Remove the insect's ImageView from the grid
+                        imageBox.getChildren().remove(spiderView);
+    
+                        // Add the pesticide ImageView
+                        ImageView pesticideView = new ImageView(pestiside);
+                        pesticideView.setFitHeight(35);
+                        pesticideView.setFitWidth(35);
+                        imageBox.getChildren().add(pesticideView);
+    
+                        // Track the pest for removal
+                        pestsToRemove.add(pest);
+    
+                        pestImageViewMap.remove(pest);
+                        occupiedPestCells.remove(cell);
+    
+                        // Remove the pesticide image after 2 seconds
+                        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                        delay.setOnFinished(event -> {
+                            if (imageBox != null) {
+                                imageBox.getChildren().remove(pesticideView);
+                            }
+                        });
+                        delay.play();
+                    } else {
+                        // Handle the case where imageBox is null
+                        System.out.println("Warning: imageBox is null for pest: " + pest);
+                    }
                 }
             }
         }
-
+    
         // Remove pests from the list
         insects.removeAll(pestsToRemove);
-        //pestKillPlant();
+        // pestKillPlant();  // Uncomment if you want to call pestKillPlant()
     }
-
+    
     public void decreaseHealth(int row, int col, Insect insect) {     
         System.out.println("In decreaseHealth method");
     

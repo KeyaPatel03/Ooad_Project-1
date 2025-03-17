@@ -31,7 +31,7 @@ public class Plant {
         this.currentWaterLevel = waterRequirement;
         this.temperature = temperature;
         this.isAlive = true;
-        this.health = 100;
+        this.health = 10;
     }
 
     public Plant(String name, int temperature, int waterRequirement, List<String> parasites, GridPane gardenGrid) {
