@@ -60,6 +60,7 @@ public class ViewController {
     private static final Image rainyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.png")));
     public static final Image orange = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/orange.png")));
     private static final Image sprinkler = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/sprinkler.png")));
+    private static final Image rainDrop = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rainD.webp")));
 
     public static final Image rain = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.webp")));
     public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
@@ -84,8 +85,9 @@ public class ViewController {
     public static int day = 1;
     public Button pressToPlayButton;
     public Button iterateDayButton;
-    @FXML
-    private ImageView rainDrop;
+
+//    @FXML
+//    private ImageView rainDrop;
     @FXML
     private ImageView weatherImageView;
     @FXML
@@ -139,6 +141,8 @@ public class ViewController {
     @FXML
     public void initialize() {
         try {
+            // Make the imagePane click-through so it doesn't block the plants
+            imagePane.setMouseTransparent(true);
             initializeGarden(); // Automatically initialize the garden
             weatherLabel.setText("SUNNY");
             weatherImageView.setImage(sunnyImage);

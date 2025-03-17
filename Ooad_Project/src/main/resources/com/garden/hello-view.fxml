@@ -74,7 +74,7 @@
                 <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        
+
         <!-- This Pane will hold raindrops -->
         <Pane fx:id="imagePane" prefWidth="600" prefHeight="400" style="-fx-background-color: transparent;" />
     </StackPane>
