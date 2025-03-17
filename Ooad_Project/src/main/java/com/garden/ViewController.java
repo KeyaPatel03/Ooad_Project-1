@@ -470,41 +470,50 @@ public class ViewController {
         if (isSprinklerActive) {
             return; // Prevent multiple activations while sprinklers are active
         }
-
+    
         logMessage("Activated Sprinklers");
-        sprinklerController.activateSprinklers(plantsList);
         isSprinklerActive = true;
-
+    
         List<ImageView> activeSprinklers = new ArrayList<>();
-
+        
         for (String cell : occupiedCells) {
             String[] parts = cell.split(",");
             int row = Integer.parseInt(parts[0]);
             int col = Integer.parseInt(parts[1]);
-
-            HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
-
-            ImageView sprinklerView = new ImageView(sprinkler);
-            sprinklerView.setFitHeight(40);
-            sprinklerView.setFitWidth(45);
-
-            sprinklerView.setTranslateX(-85);
-            sprinklerView.setTranslateY(49);
-
-            imageBox.getChildren().add(sprinklerView);
-            activeSprinklers.add(sprinklerView);
+    
+            // Find plants in the current cell
+            for (Plant plant : Plant.plantsList) {
+                if (plant.getRow() == row && plant.getCol() == col) {
+                    if (plant.getCurrentWaterLevel() < plant.getWaterRequirement()) {  // Check if the plant needs water
+                        plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() + 2); // Increase water level
+    
+                        // Get the HBox container for the cell
+                        HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    
+                        ImageView sprinklerView = new ImageView(sprinkler);
+                        sprinklerView.setFitHeight(40);
+                        sprinklerView.setFitWidth(45);
+                        sprinklerView.setTranslateX(-85);
+                        sprinklerView.setTranslateY(49);
+    
+                        imageBox.getChildren().add(sprinklerView);
+                        activeSprinklers.add(sprinklerView);
+                    }
+                }
+            }
         }
-
-        // Schedule removal after 5 seconds
+    
+        // Schedule removal of sprinklers after 5 seconds
         PauseTransition delay = new PauseTransition(Duration.seconds(5));
         delay.setOnFinished(event -> {
             for (ImageView sprinklerView : activeSprinklers) {
                 ((HBox) sprinklerView.getParent()).getChildren().remove(sprinklerView);
             }
-            isSprinklerActive = false; // Reset flag after all sprinklers are removed
+            isSprinklerActive = false; // Reset flag after sprinklers are removed
         });
         delay.play();
     }
+    
 
     @FXML
     private void applyPesticide(ActionEvent event) {
@@ -534,7 +543,7 @@ public class ViewController {
     // Use your own raindrop image
 
     @FXML
-private void activateRain(ActionEvent event) {
+private void activateRain() {
     if (isRainActive) {
         return; // If rain is already active, do nothing
     }
@@ -706,24 +715,38 @@ private void stopRain(Timeline rainTimeline) {
     //incrementing each day and calling appropriate methods to run each day
     public void iterateDay() throws IOException {
         userInfoLabel.setText("Today is Day " + day);
+        Random random = new Random();
+    
+        // Random rain
+        int randomRain = random.nextInt(2);
+        System.out.println("random rain = " + randomRain);
+        if (randomRain == 1) {
+            activateRain();
+        }
     
         // Perform pest control
         pestControl();
     
-        // Wait for 3 seconds before adding new pests
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished(event -> addPestsToCells());
-        delay.play();
+        // Generate another random number for adding pests
+        int randomPests = random.nextInt(2);
+        System.out.println("random pests = " + randomPests);
     
+        // If the random number is 1, add pests immediately
+        if (randomPests == 1) {
+            addPestsToCells();
+        } 
+        
         if (!occupiedCells.isEmpty()) {
             // pests();
         }
-        for (Plant plant : plantsList){
+    
+        for (Plant plant : plantsList) {
             System.out.println(plant);
         }
-        
+    
         day++;
     }
+    
     
 
     public void iterateDayWithTimer() throws InterruptedException, IOException {

@@ -28,7 +28,7 @@ public class Plant {
         this.name = name;
         this.waterRequirement = waterRequirement;
         this.parasites = parasites;
-        this.currentWaterLevel = 0;
+        this.currentWaterLevel = waterRequirement;
         this.temperature = temperature;
         this.isAlive = true;
         this.health = 100;
@@ -38,7 +38,7 @@ public class Plant {
         this.name = name;
         this.waterRequirement = waterRequirement;
         this.parasites = parasites;
-        this.currentWaterLevel = 0;
+        this.currentWaterLevel = waterRequirement;
         this.temperature = temperature;
         this.isAlive = true;
         this.gardenGrid = gardenGrid;
