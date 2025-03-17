@@ -540,7 +540,7 @@ private void activateRain(ActionEvent event) {
     int totalRows = 10; // Number of rows for raindrops
     int raindropsPerRow = 8; // Raindrops in each row
     double rowDelay = 0.3; // Delay in seconds between rows
-
+    System.out.println("--");
     Timeline rainTimeline = new Timeline();
     rainTimeline.setCycleCount(Timeline.INDEFINITE); // Infinite loop initially
 
@@ -548,7 +548,7 @@ private void activateRain(ActionEvent event) {
         int finalRow = row;
         rainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(row * rowDelay), e -> {
             for (int i = 0; i < raindropsPerRow; i++) {
-                ImageView raindrop = new ImageView(orange); // Use actual rain image
+                ImageView raindrop = new ImageView(rainyImage); // Use actual rain image
                 raindrop.setFitHeight(10);
                 raindrop.setFitWidth(5);
 
