@@ -1,9 +1,9 @@
 package com.garden;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.List;
 
 public class SprinklerController {
     private static final Logger log = LogManager.getLogger(SprinklerController.class);
@@ -21,7 +21,7 @@ public class SprinklerController {
         for (Plant plant : plants) {
             totalRequirement += plant.getWaterRequirement();
         }
-        return totalRequirement / plants.size();
+        return totalRequirement / 1;
     }
 
 }

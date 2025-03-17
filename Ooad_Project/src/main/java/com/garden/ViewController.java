@@ -25,9 +25,11 @@ import static com.garden.Plant.plantsList;
 
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -67,6 +69,7 @@ public class ViewController {
     public static final Image pine = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/pine.png")));
     public static final Image maple = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/maple.png")));
 
+
     private static final Image caterpillar = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/caterpillar.png")));
     public static Set<String> occupiedCells = new HashSet<>();
     public static ArrayList<String> occupiedPestCells = new ArrayList<>();
@@ -80,6 +83,8 @@ public class ViewController {
     public static int day = 1;
     public Button pressToPlayButton;
     public Button iterateDayButton;
+    @FXML
+    private ImageView rainDrop;
     @FXML
     private ImageView weatherImageView;
     @FXML
@@ -136,6 +141,9 @@ public class ViewController {
             initializeGarden(); // Automatically initialize the garden
             weatherLabel.setText("SUNNY");
             weatherImageView.setImage(sunnyImage);
+            if (imagePane == null) {
+                imagePane = new Pane();
+            }
 
 
         } catch (FileNotFoundException e) {
@@ -502,49 +510,82 @@ public class ViewController {
         });
     }
     
-    @FXML
-    private ImageView rainGifImageView; // The ImageView for the raining GIF
-
     private boolean isRainActive = false;
+    // Use your own raindrop image
+
     @FXML
-    private void activateRain(ActionEvent event) {
-        if (isRainActive) {
-            return; // If rain is already active, do nothing
-        }
+private void activateRain(ActionEvent event) {
+    if (isRainActive) {
+        return; // If rain is already active, do nothing
+    }
 
-        logMessage("Activated Rainfall");
-        int rainfallAmount = 5; // Set desired rainfall amount
-        rainController.simulateRain(rainfallAmount, plantsList);
-        adjustSprinklersBasedOnRainfall(rainfallAmount);
+    logMessage("Activated Rainfall");
+    isRainActive = true;
+    int totalRows = 10; // Number of rows for raindrops
+    int raindropsPerRow = 8; // Raindrops in each row
+    double rowDelay = 0.3; // Delay in seconds between rows
 
-        isRainActive = true; // Mark rain as active
+    Timeline rainTimeline = new Timeline();
+    rainTimeline.setCycleCount(Timeline.INDEFINITE); // Infinite loop initially
 
-        Platform.runLater(() -> {
-            weatherLabel.setText("RAINY");
-            weatherImageView.setImage(rainyImage);
+    for (int row = 0; row < totalRows; row++) {
+        int finalRow = row;
+        rainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(row * rowDelay), e -> {
+            for (int i = 0; i < raindropsPerRow; i++) {
+                ImageView raindrop = new ImageView(orange); // Use actual rain image
+                raindrop.setFitHeight(10);
+                raindrop.setFitWidth(5);
 
-            // OPTIONAL: Display rain animation (e.g., overlaying rain image)
-            ImageView rainEffect = new ImageView(rainyImage);
-            rainEffect.setFitHeight(gardenGrid.getHeight());
-            rainEffect.setFitWidth(gardenGrid.getWidth());
-            rainEffect.setOpacity(0.7); // Make it semi-transparent
+                double startX = Math.random() * gardenGrid.getWidth();
+                raindrop.setLayoutX(startX);
+                raindrop.setLayoutY(finalRow * 20); // Spread across rows
 
-            imagePane.getChildren().add(rainEffect); // Add rain effect to UI
+                if (imagePane != null) {
+                    imagePane.getChildren().add(raindrop);
+                }
 
-            // Schedule removal of rain effect and reset weather after 10 seconds
-            Timeline weatherResetTimeline = new Timeline(new KeyFrame(
-                    Duration.seconds(10),
-                    e -> {
-                        weatherLabel.setText("Sunny");
-                        weatherImageView.setImage(sunnyImage);
-                        imagePane.getChildren().remove(rainEffect); // Remove rain effect
-                        isRainActive = false; // Reset flag
-                    }
-            ));
-            weatherResetTimeline.play();
-        });
+                TranslateTransition fall = new TranslateTransition(Duration.seconds(2), raindrop);
+                fall.setByY(gardenGrid.getHeight() - finalRow * 10); // Different heights
+                fall.setOnFinished(ev -> imagePane.getChildren().remove(raindrop));
+                fall.play();
+            }
+        }));
+    }
+
+    rainTimeline.play(); // Start the rain animation
+
+    // Update weather label and image
+    Platform.runLater(() -> {
+        weatherLabel.setText("RAINY");
+        weatherImageView.setImage(rainyImage);
+    });
+
+    // Stop rain and reset after 10 seconds
+    Timeline weatherResetTimeline = new Timeline(new KeyFrame(
+            Duration.seconds(10),
+            e -> stopRain(rainTimeline)
+    ));
+    weatherResetTimeline.play();
 }
 
+/**
+ * Stops the rain, clears raindrops, and resets weather to sunny.
+ */
+private void stopRain(Timeline rainTimeline) {
+    Platform.runLater(() -> {
+        weatherLabel.setText("Sunny");
+        weatherImageView.setImage(sunnyImage);
+        isRainActive = false;
+
+        // Stop generating new raindrops
+        rainTimeline.stop();
+
+        // Clear all remaining raindrops
+        if (imagePane != null) {
+            imagePane.getChildren().clear();
+        }
+    });
+}
 
 
 

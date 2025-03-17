@@ -52,8 +52,8 @@
     </right>
 
     <center>
-        <GridPane fx:id="gardenGrid" gridLinesVisible="True" onMouseClicked="#plantPlants"
-                  styleClass="grid-pane">
+    <StackPane>
+        <GridPane fx:id="gardenGrid" gridLinesVisible="True" onMouseClicked="#plantPlants" styleClass="grid-pane">
             <columnConstraints>
                 <ColumnConstraints prefWidth="100.0" hgrow="SOMETIMES" />
                 <ColumnConstraints prefWidth="100.0" hgrow="SOMETIMES" />
@@ -74,7 +74,12 @@
                 <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-    </center>
+        
+        <!-- This Pane will hold raindrops -->
+        <Pane fx:id="imagePane" prefWidth="600" prefHeight="400" style="-fx-background-color: transparent;" />
+    </StackPane>
+</center>
+
 
     <!-- Bottom: System Info -->
     <bottom>

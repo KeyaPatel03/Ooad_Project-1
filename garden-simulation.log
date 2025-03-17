@@ -2516,3 +2516,70 @@
 [INFO ] 2025-03-16 17:59:12.022 [JavaFX Application Thread] GardenController - Planting plants
 [INFO ] 2025-03-16 17:59:12.545 [JavaFX Application Thread] GardenController - Planting plants
 [INFO ] 2025-03-16 17:59:12.972 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:12.689 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:13.233 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:14.192 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:14.679 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:16.501 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:16.954 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:17.346 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:19.326 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:19.728 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:20.192 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:22.372 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:22.809 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:23.505 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:23.949 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:24.718 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:25.074 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:25.560 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:26.083 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:26.553 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:26.986 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:27.407 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:27.912 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:28.467 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:28.990 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:29.409 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:29.930 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:33.766 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:34.466 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:35.177 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:35.839 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:36.298 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:37.257 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:37.731 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:38.255 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:39.278 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:39.831 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:40.442 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:40.450 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:42.206 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:42.212 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:42.224 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:44.983 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:46.114 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:47.309 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:48.660 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:48.673 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:48.683 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:48.686 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:48.689 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:00:48.693 [JavaFX Application Thread] GardenController - Planting plants
+[INFO ] 2025-03-16 18:01:33.893 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 11 units of water to all plants.
+[INFO ] 2025-03-16 18:03:14.807 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 11 units of water to all plants.
+[INFO ] 2025-03-16 18:05:34.721 [JavaFX Application Thread] RainController - Simulating rain of 5 units.
+[WARN ] 2025-03-16 18:05:34.756 [JavaFX Application Thread] GardenController - Insufficient rainfall received. Activating sprinkler system.
+[INFO ] 2025-03-16 18:07:04.607 [JavaFX Application Thread] RainController - Simulating rain of 5 units.
+[WARN ] 2025-03-16 18:07:04.621 [JavaFX Application Thread] GardenController - Insufficient rainfall received. Activating sprinkler system.
+[INFO ] 2025-03-16 18:10:03.691 [JavaFX Application Thread] RainController - Simulating rain of 5 units.
+[WARN ] 2025-03-16 18:10:03.704 [JavaFX Application Thread] GardenController - Insufficient rainfall received. Activating sprinkler system.
+[INFO ] 2025-03-16 18:11:54.599 [JavaFX Application Thread] RainController - Simulating rain of 5 units.
+[WARN ] 2025-03-16 18:11:54.629 [JavaFX Application Thread] GardenController - Insufficient rainfall received. Activating sprinkler system.
+[INFO ] 2025-03-16 18:11:54.629 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 0 units of water to all plants.
+[INFO ] 2025-03-16 18:17:11.731 [JavaFX Application Thread] RainController - Simulating rain of 5 units.
+[WARN ] 2025-03-16 18:17:11.745 [JavaFX Application Thread] GardenController - Insufficient rainfall received. Activating sprinkler system.
+[INFO ] 2025-03-16 18:17:11.745 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 0 units of water to all plants.
+[INFO ] 2025-03-16 18:18:25.546 [JavaFX Application Thread] RainController - Simulating rain of 5 units.
+[WARN ] 2025-03-16 18:18:25.555 [JavaFX Application Thread] GardenController - Insufficient rainfall received. Activating sprinkler system.
+[INFO ] 2025-03-16 18:18:25.556 [JavaFX Application Thread] SprinklerController - Activating sprinklers, providing an average of 0 units of water to all plants.
