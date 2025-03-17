@@ -32,6 +32,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -93,7 +94,11 @@ public class ViewController {
     @FXML
     private RadioButton OrangeButton;
     @FXML
-    private RadioButton TomatoButton;
+    private RadioButton lemonButton;
+    @FXML
+    private RadioButton pineButton;
+    @FXML
+    private RadioButton mapleButton;
     @FXML
     private HBox imageBox = new HBox();
     @FXML
@@ -180,6 +185,15 @@ public class ViewController {
                 if (OrangeButton.isSelected()) {
                     plantOrange(row, col);
                 }
+                if(pineButton.isSelected()){
+                    plantPine(row, col);
+                }
+                if(mapleButton.isSelected()){
+                    plantMaple(row, col);
+                }
+                if(lemonButton.isSelected()){
+                    plantLemon(row, col);
+                }
                 
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
@@ -190,105 +204,234 @@ public class ViewController {
         }
     }
 
-    //planting a Rose ; creating rose object and adding it to the gird
     public void plantRose(int row, int col) throws FileNotFoundException {
         String roseCell = row + "," + col;
         if (occupiedCells.contains(roseCell)) {
             return;
         }
+    
+        // Find the correct grid cell (HBox)
         HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    
+        // Create the StackPane to hold both the plant image and the health label
+        StackPane stackPane = new StackPane();
+        
+        // Create and add the plant image
         ImageView plantView = new ImageView();
         plantView.setFitHeight(65);
         plantView.setFitWidth(65);
-        plantView.setImage(roseImage);
-        imageBox.getChildren().add(plantView);
+        plantView.setImage(roseImage); // Assuming roseImage is the image for the Rose plant
+    
+        // Center the plant image in the StackPane
+        StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
+        
+        // Create the health label
+        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
+        
+        // Add the plant image and health label to the StackPane
+        stackPane.getChildren().addAll(plantView, healthLabel);
+        
+        // Align the health label at the bottom-left of the StackPane
+        StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
+        
+        // Add the stackPane to the HBox
+        imageBox.getChildren().add(stackPane);
+    
+        // Mark the cell as occupied
         occupiedCells.add(roseCell);
+    
+        // Create and add the Rose plant object to the plants list
         Rose rose = new Rose(gardenGrid);
         rose.setRow(row);           
         rose.setCol(col);  
         plantImageViewMap.put(rose, plantView);
         plantsList.add(rose);
     }
+    
 
 
-    //planting a Orange; create Orange object and add it to the grid
     public void plantOrange(int row, int col) throws FileNotFoundException {
         String cell = row + "," + col;
         if (occupiedCells.contains(cell)) {
             return;
         }
+    
+        // Find the correct grid cell (HBox)
         HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    
+        // Create the StackPane to hold both the plant image and the health label
+        StackPane stackPane = new StackPane();
+        
+        // Create and add the plant image
         ImageView plantView = new ImageView();
         plantView.setFitHeight(65);
         plantView.setFitWidth(65);
         plantView.setImage(orange);
-        imageBox.getChildren().add(plantView);
+        
+        // Center the plant image in the StackPane
+        StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
+    
+        // Create the health label
+        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji
+        healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
+    
+        // Add the plant image and health label to the StackPane
+        stackPane.getChildren().addAll(plantView, healthLabel);
+        
+        // Align health label at the bottom-left of the StackPane
+        StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Change to position it as needed
+        
+        // Add the stackPane to the HBox
+        imageBox.getChildren().add(stackPane);
+    
+        // Mark the cell as occupied
         occupiedCells.add(cell);
-        Orange Orange = new Orange(gardenGrid);
-        Orange.setRow(row);           
-        Orange.setCol(col); 
-        plantImageViewMap.put(Orange, plantView);
-        plantsList.add(Orange);
-    }
+    
+        // Create and add the Orange plant object to the plants list
+        Orange orangePlant = new Orange(gardenGrid);
+        orangePlant.setRow(row);           
+        orangePlant.setCol(col);
+        plantImageViewMap.put(orangePlant, plantView);
+        plantsList.add(orangePlant);
+    }    
+    
 
     public void plantLemon(int row, int col) throws FileNotFoundException {
         String cell = row + "," + col;
         if (occupiedCells.contains(cell)) {
             return;
         }
+    
+        // Find the correct grid cell (HBox)
         HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    
+        // Create the StackPane to hold both the plant image and the health label
+        StackPane stackPane = new StackPane();
+        
+        // Create and add the plant image
         ImageView plantView = new ImageView();
         plantView.setFitHeight(65);
         plantView.setFitWidth(65);
-        plantView.setImage(lemon);
-        imageBox.getChildren().add(plantView);
+        plantView.setImage(lemon);  // Assuming lemon is the image for the Lemon plant
+    
+        // Center the plant image in the StackPane
+        StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
+        
+        // Create the health label
+        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
+        
+        // Add the plant image and health label to the StackPane
+        stackPane.getChildren().addAll(plantView, healthLabel);
+        
+        // Align the health label at the bottom-left of the StackPane
+        StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
+        
+        // Add the stackPane to the HBox
+        imageBox.getChildren().add(stackPane);
+    
+        // Mark the cell as occupied
         occupiedCells.add(cell);
-        Lemon lemon = new Lemon(gardenGrid);
-        lemon.setRow(row);
-        lemon.setCol(col);
-        plantImageViewMap.put(lemon, plantView);
-        plantsList.add(lemon);
+    
+        // Create and add the Lemon plant object to the plants list
+        Lemon lemonPlant = new Lemon(gardenGrid);
+        lemonPlant.setRow(row);
+        lemonPlant.setCol(col);
+        plantImageViewMap.put(lemonPlant, plantView);
+        plantsList.add(lemonPlant);
     }
-
-    //planting a Pine; create Orange object and add it to the grid
+    
     public void plantPine(int row, int col) throws FileNotFoundException {
         String cell = row + "," + col;
         if (occupiedCells.contains(cell)) {
             return;
         }
+    
+        // Find the correct grid cell (HBox)
         HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    
+        // Create the StackPane to hold both the plant image and the health label
+        StackPane stackPane = new StackPane();
+        
+        // Create and add the plant image
         ImageView plantView = new ImageView();
         plantView.setFitHeight(65);
         plantView.setFitWidth(65);
-        plantView.setImage(pine);
-        imageBox.getChildren().add(plantView);
+        plantView.setImage(pine);  // Assuming pine is the image for the Pine plant
+    
+        // Center the plant image in the StackPane
+        StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
+        
+        // Create the health label
+        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
+        
+        // Add the plant image and health label to the StackPane
+        stackPane.getChildren().addAll(plantView, healthLabel);
+        
+        // Align the health label at the bottom-left of the StackPane
+        StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
+        
+        // Add the stackPane to the HBox
+        imageBox.getChildren().add(stackPane);
+    
+        // Mark the cell as occupied
         occupiedCells.add(cell);
-        Pine pine = new Pine(gardenGrid);
-        pine.setCol(col);
-        pine.setRow(row);
-        plantImageViewMap.put(pine, plantView);
-        plantsList.add(pine);
+    
+        // Create and add the Pine plant object to the plants list
+        Pine pinePlant = new Pine(gardenGrid);
+        pinePlant.setRow(row);
+        pinePlant.setCol(col);
+        plantImageViewMap.put(pinePlant, plantView);
+        plantsList.add(pinePlant);
     }
-
-    //planting a Maple tree ; creating rose object and adding it to the gird
+    
     public void plantMaple(int row, int col) throws FileNotFoundException {
         String mapleCell = row + "," + col;
         if (occupiedCells.contains(mapleCell)) {
             return;
         }
+    
+        // Find the correct grid cell (HBox)
         HBox imageBox = (HBox) gardenGrid.getChildren().get(col * gardenGrid.getRowCount() + (row + 1));
+    
+        // Create the StackPane to hold both the plant image and the health label
+        StackPane stackPane = new StackPane();
+        
+        // Create and add the plant image
         ImageView plantView = new ImageView();
         plantView.setFitHeight(65);
         plantView.setFitWidth(65);
-        plantView.setImage(maple);
-        imageBox.getChildren().add(plantView);
+        plantView.setImage(maple);  // Assuming maple is the image for the Maple plant
+    
+        // Center the plant image in the StackPane
+        StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
+        
+        // Create the health label
+        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
+        
+        // Add the plant image and health label to the StackPane
+        stackPane.getChildren().addAll(plantView, healthLabel);
+        
+        // Align the health label at the bottom-left of the StackPane
+        StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
+        
+        // Add the stackPane to the HBox
+        imageBox.getChildren().add(stackPane);
+    
+        // Mark the cell as occupied
         occupiedCells.add(mapleCell);
-        Maple maple = new Maple(gardenGrid);
-        maple.setCol(col);
-        maple.setRow(row);
-        plantImageViewMap.put(maple, plantView);
-        plantsList.add(maple);
+    
+        // Create and add the Maple plant object to the plants list
+        Maple maplePlant = new Maple(gardenGrid);
+        maplePlant.setRow(row);
+        maplePlant.setCol(col);
+        plantImageViewMap.put(maplePlant, plantView);
+        plantsList.add(maplePlant);
     }
+    
 
     //planting a Tomato; create Tomato object and add it to the grid
     // public void plantTomato(int row, int col) throws FileNotFoundException {
@@ -682,23 +825,71 @@ private void activateRain(ActionEvent event) {
         //pestKillPlant();
     }
 
-    public void decreaseHealth(int row, int col, Insect insect) {
+    public void decreaseHealth(int row, int col, Insect insect) {     
         System.out.println("In decreaseHealth method");
-        
+    
         for (Plant plant : plantsList) {
             System.out.println("Checking plant: " + plant.getName() + " at (" + plant.getRow() + ", " + plant.getCol() + ")");
-            
+    
+            // Check if the plant's position matches the row and column
             if (plant.getRow() == row && plant.getCol() == col) {
                 int damage = insect.getDamageByPlant(plant.getName().toLowerCase());
                 System.out.println("Damage caused by insect: " + damage);
-                
+    
+                // Find the correct grid cell
+                int index = col * gardenGrid.getRowCount() + (row+1); // Corrected index calculation
+                HBox imageBox = (HBox) gardenGrid.getChildren().get(index);
+    
+                // Create a StackPane to layer the health label (no image anymore)
+                StackPane stackPane = null;
+    
+                // Check if the imageBox already contains a StackPane
+                for (javafx.scene.Node node : imageBox.getChildren()) {
+                    if (node instanceof StackPane) {
+                        stackPane = (StackPane) node;
+                        break;
+                    }
+                }
+    
+                // If stackPane is not found, create one
+                if (stackPane == null) {
+                    stackPane = new StackPane();
+                    imageBox.getChildren().add(stackPane);
+                }
+    
+                // Apply damage to the plant
                 plant.takeDamage(damage);
-                
+    
+                // Create or update the health label
+                Label healthLabel = null;
+                for (javafx.scene.Node node : stackPane.getChildren()) {
+                    if (node instanceof Label) {
+                        healthLabel = (Label) node;
+                        break;
+                    }
+                }
+    
+                // If health label does not exist, create and add it
+                if (healthLabel == null) {
+                    healthLabel = new Label("HP: " + plant.getHealth());
+                    healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0.5); -fx-text-fill: white;");
+                    StackPane.setAlignment(healthLabel, Pos.TOP_LEFT); // Position the health label in the top-left corner
+                    stackPane.getChildren().add(healthLabel);
+                } else {
+                    // If health label exists, update it
+                    healthLabel.setText("💚 HP: " + plant.getHealth());
+                }
+    
+                // Ensure StackPane itself doesn't interfere with the label alignment
+                StackPane.setAlignment(stackPane, Pos.BASELINE_LEFT);
+    
                 System.out.println("Plant after insect attack: " + plant);
                 break; // Stop after finding the matching plant
             }
         }
     }
     
-
+    
+    
+    
 }

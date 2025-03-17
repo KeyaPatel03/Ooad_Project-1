@@ -10,6 +10,6 @@ public class Pine extends Plant {
     }
 
     public Pine(GridPane gardenGrid) {
-        super("Pine", 60,12, Arrays.asList("flea beetles", "leaf miners"), gardenGrid);
+        super("Pine", 60,12, Arrays.asList("flea beetles", "leaf miners"), 100);
     }
 }
