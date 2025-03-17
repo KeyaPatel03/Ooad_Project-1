@@ -722,6 +722,17 @@ private void stopRain(Timeline rainTimeline) {
         System.out.println("random rain = " + randomRain);
         if (randomRain == 1) {
             activateRain();
+            for (Plant plant : plantsList) {
+                plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() + 2);
+                if(plant.getCurrentWaterLevel() > plant.getWaterRequirement()){
+                    plant.setHealth(plant.getHealth()-2);
+                }
+            }
+        }
+        else{
+            for (Plant plant : plantsList) {
+                plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() - 2);
+            }
         }
     
         // Perform pest control
@@ -734,14 +745,25 @@ private void stopRain(Timeline rainTimeline) {
         // If the random number is 1, add pests immediately
         if (randomPests == 1) {
             addPestsToCells();
+        }
+        else{
+            for (Plant plant : plantsList) {
+                plant.setHealth(plant.getHealth() + 2);
+            }
         } 
-        
+
         if (!occupiedCells.isEmpty()) {
             // pests();
         }
     
         for (Plant plant : plantsList) {
             System.out.println(plant);
+        }
+        for (Plant plant : plantsList) {
+            if(plant.getCurrentWaterLevel() < plant.getWaterRequirement()){
+                activateSprinklers();
+    
+            }
         }
     
         day++;
