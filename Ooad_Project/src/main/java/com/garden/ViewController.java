@@ -727,6 +727,9 @@ private void stopRain(Timeline rainTimeline) {
                 if(plant.getCurrentWaterLevel() > plant.getWaterRequirement()){
                     plant.setHealth(plant.getHealth()-2);
                 }
+                else if(plant.getCurrentWaterLevel() == plant.getWaterRequirement()){
+                    plant.setHealth(plant.getHealth() + 1);
+                }
             }
         }
         else{
