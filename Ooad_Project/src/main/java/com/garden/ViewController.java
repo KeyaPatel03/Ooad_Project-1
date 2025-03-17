@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 
+import javafx.geometry.Insets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -232,7 +233,10 @@ public class ViewController {
         
         // Align the health label at the bottom-left of the StackPane
         StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
-        
+
+        // Add some margin to ensure it appears at the extreme bottom left
+        StackPane.setMargin(healthLabel, new Insets(0, 0, 45, -65)); // Adjust margins as needed
+
         // Add the stackPane to the HBox
         imageBox.getChildren().add(stackPane);
     
@@ -279,6 +283,9 @@ public class ViewController {
         
         // Align health label at the bottom-left of the StackPane
         StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Change to position it as needed
+
+        // Add some margin to ensure it appears at the extreme bottom left
+        StackPane.setMargin(healthLabel, new Insets(0, 0, 45, -65)); // Adjust margins as needed
         
         // Add the stackPane to the HBox
         imageBox.getChildren().add(stackPane);
@@ -325,7 +332,10 @@ public class ViewController {
         
         // Align the health label at the bottom-left of the StackPane
         StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
-        
+
+        // Add some margin to ensure it appears at the extreme bottom left
+        StackPane.setMargin(healthLabel, new Insets(0, 0, 45, -65)); // Adjust margins as needed
+
         // Add the stackPane to the HBox
         imageBox.getChildren().add(stackPane);
     
@@ -370,7 +380,10 @@ public class ViewController {
         
         // Align the health label at the bottom-left of the StackPane
         StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
-        
+
+        // Add some margin to ensure it appears at the extreme bottom left
+        StackPane.setMargin(healthLabel, new Insets(0, 0, 45, -65)); // Adjust margins as needed
+
         // Add the stackPane to the HBox
         imageBox.getChildren().add(stackPane);
     
@@ -415,7 +428,10 @@ public class ViewController {
         
         // Align the health label at the bottom-left of the StackPane
         StackPane.setAlignment(healthLabel, Pos.BOTTOM_LEFT);  // Adjust position as needed
-        
+
+        // Add some margin to ensure it appears at the extreme bottom left
+        StackPane.setMargin(healthLabel, new Insets(0, 0, 45, -65)); // Adjust margins as needed
+
         // Add the stackPane to the HBox
         imageBox.getChildren().add(stackPane);
     
@@ -461,7 +477,7 @@ public class ViewController {
             sprinklerView.setFitWidth(45);
 
             sprinklerView.setTranslateX(-85);
-            sprinklerView.setTranslateY(41);
+            sprinklerView.setTranslateY(49);
 
             imageBox.getChildren().add(sprinklerView);
             activeSprinklers.add(sprinklerView);
