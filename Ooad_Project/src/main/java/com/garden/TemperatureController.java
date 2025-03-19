@@ -1,12 +1,13 @@
 package com.garden;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-
 public class TemperatureController {
     public static final int LOWER_TEMPERATURE_THRESHOLD = 40;
+    public static final int Higher_TEMPERATURE_THRESHOLD = 120;
     private static final Logger log = LogManager.getLogger(TemperatureController.class);
     private final HeatingController heatingController = new HeatingController();
 
@@ -17,7 +18,8 @@ public class TemperatureController {
             log.warn("Detected low temperature of {} which is below {}. Activating Garden Heating system", temperature, LOWER_TEMPERATURE_THRESHOLD);
             temperature = heatingController.activateHeating();
         } else if (temperature > 120) {
-            log.warn("Extreme high temperature detected. All plants will die.");
+            log.warn("Detected high temperature of {} which is above {}. Activating Garden Cooling system", temperature, Higher_TEMPERATURE_THRESHOLD);
+            temperature = heatingController.activateHeating();
         }
         adjustPlantTemperatures(plants, temperature);
     }

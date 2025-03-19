@@ -12,8 +12,8 @@
 
             <HBox prefHeight="50.0" style="-fx-background-color: #99ec9d;" spacing="20" BorderPane.alignment="CENTER" alignment="CENTER">
                 <children>
-                    <Button fx:id="iterateDayButton" mnemonicParsing="false" onAction="#iterateDayWithTimer" text="Simulate" style="-fx-background-color: #ffffff; -fx-font-size: 14px;"/>
-                    <Button fx:id="finish" mnemonicParsing="false" onAction="#finish" text="Finish" style="-fx-background-color: #ffffff; -fx-font-size: 14px;"/>
+                    <Button fx:id="iterateDayButton" mnemonicParsing="false" onAction="#iterateDayWithTimer" text="Simulate" style="-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                    <Button fx:id="finish" mnemonicParsing="false" onAction="#finish" text="Finish" style="-fx-background-color: #ffffff; -fx-font-size: 14px; -fx-font-weight: bold;"/>
                 </children>
             </HBox>
         </VBox>
@@ -39,11 +39,11 @@
                 <RadioButton fx:id="pineButton" text="Pine Tree" toggleGroup="$plantType" />
                 <RadioButton fx:id="mapleButton" text="Maple Tree" toggleGroup="$plantType" />
 
-                <Label text="Select the Function" style="-fx-font-size: 16px; -fx-text-fill: #000000;" />
-                <Button fx:id="heatingButton" onAction="#adjustTemperature" text="Handle Temperature" style="-fx-background-color: #ffcccb;" />
+                <!-- <Label text="Select the Function" style="-fx-font-size: 16px; -fx-text-fill: #000000;" />
+                <Button fx:id="heatingButton" text="Handle Temperature" style="-fx-background-color: #ffcccb;" />
                 <Button fx:id="sprinklersButton" onAction="#activateSprinklers" text="Activate Sprinklers" style="-fx-background-color: #b3e6ff;" />
                 <Button fx:id="pesticideButton" onAction="#applyPesticide" text="Apply Pesticide" style="-fx-background-color: #ffeeba;" />
-                <Button fx:id="rainButton" onAction="#activateRain" text="Rain" style="-fx-background-color: #d1f5d3;" />
+                <Button fx:id="rainButton" onAction="#activateRain" text="Rain" style="-fx-background-color: #d1f5d3;" /> -->
 
                 <Label text="Logs :" style="-fx-font-size: 16px; -fx-text-fill: #000000;" />
                 <TextArea fx:id="logArea" prefHeight="800" prefWidth="180" wrapText="true" editable="false" />

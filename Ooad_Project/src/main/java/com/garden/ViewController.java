@@ -53,6 +53,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 
@@ -62,7 +63,7 @@ public class ViewController {
     private static final Image rainyImage = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.png")));
     public static final Image orange = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/orange.png")));
     private static final Image sprinkler = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/sprinkler.png")));
-    private static final Image rainDrop = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rainD.webp")));
+    private static final Image rainDrop = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rainDropClor.jpg")));
 
     public static final Image rain = new Image(Objects.requireNonNull(ViewController.class.getResourceAsStream("/images/rain.webp")));
     public static final Map<Insect, ImageView> pestImageViewMap = new HashMap<>();
@@ -87,6 +88,8 @@ public class ViewController {
     public static int day = 1;
     public Button pressToPlayButton;
     public Button iterateDayButton;
+
+    public int currentTemperature = 62;
 
 //    @FXML
 //    private ImageView rainDrop;
@@ -131,7 +134,8 @@ public class ViewController {
 
     @FXML
     private Button rainButton;
-    @FXML private Label temperatureWarningLabel;
+    @FXML 
+    private Label temperatureWarningLabel;
 
     public ViewController() {
         heatingController = new HeatingController();
@@ -140,13 +144,15 @@ public class ViewController {
         rainController = new RainController();
         temperatureController = new TemperatureController();
     }
+
+    
     @FXML
     public void initialize() {
         try {
             // Make the imagePane click-through so it doesn't block the plants
             imagePane.setMouseTransparent(true);
             initializeGarden(); // Automatically initialize the garden
-            weatherLabel.setText("SUNNY");
+            weatherLabel.setText("SUNNY" + " " + currentTemperature + "°F");
             weatherImageView.setImage(sunnyImage);
             if (imagePane == null) {
                 imagePane = new Pane();
@@ -159,7 +165,7 @@ public class ViewController {
     }
     @FXML
     public void initializeGarden() throws FileNotFoundException {
-        String imageUrl = getClass().getResource("/images/garden.jpg").toExternalForm();
+        String imageUrl = getClass().getResource("/images/gardenBackground.jpeg").toExternalForm();
         gardenGrid.setStyle(
                 "-fx-background-image: url('" + imageUrl + "'); " +
                         "-fx-background-repeat: stretch; " +
@@ -187,6 +193,7 @@ public class ViewController {
     @FXML
     public void plantPlants() {
         log.info("Planting plants");
+        //logMessage("Planting");
         EventHandler<MouseEvent> plantHandler = event -> {
             Node node = (Node) event.getSource();
             int row = GridPane.getRowIndex(node);
@@ -194,18 +201,23 @@ public class ViewController {
             try {
                 if (roseButton.isSelected()) {
                     plantRose(row, col);
+                    logMessage("-> Planting Rose");
                 }
                 if (OrangeButton.isSelected()) {
                     plantOrange(row, col);
+                    logMessage("-> Planting Orange");
                 }
                 if (lemonButton.isSelected()) {
                     plantLemon(row, col);
+                    logMessage("-> Planting Lemon");
                 }
                 if (pineButton.isSelected()) {
                     plantPine(row, col);
+                    logMessage("-> Planting Pine");
                 }
                 if (mapleButton.isSelected()) {
                     plantMaple(row, col);
+                    logMessage("-> Planting Maple");
                 }
                 
             } catch (FileNotFoundException e) {
@@ -239,7 +251,7 @@ public class ViewController {
         StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
         
         // Create the health label
-        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        Label healthLabel = new Label("💚 HP: 100"+"%");  // Adding a green heart emoji for health
         healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
         
         // Add the plant image and health label to the StackPane
@@ -289,7 +301,7 @@ public class ViewController {
         StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
     
         // Create the health label
-        Label healthLabel = new Label("💚 HP: 10");  // Adding a green heart emoji
+        Label healthLabel = new Label("💚 HP: 100"+"%");  // Adding a green heart emoji
         healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
     
         // Add the plant image and health label to the StackPane
@@ -338,7 +350,7 @@ public class ViewController {
         StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
         
         // Create the health label
-        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        Label healthLabel = new Label("💚 HP: 100"+"%");  // Adding a green heart emoji for health
         healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
         
         // Add the plant image and health label to the StackPane
@@ -386,7 +398,7 @@ public class ViewController {
         StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
         
         // Create the health label
-        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        Label healthLabel = new Label("💚 HP: 100"+"%");  // Adding a green heart emoji for health
         healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
         
         // Add the plant image and health label to the StackPane
@@ -434,7 +446,7 @@ public class ViewController {
         StackPane.setAlignment(plantView, Pos.CENTER_LEFT);  // Center the plant image in the StackPane
         
         // Create the health label
-        Label healthLabel = new Label("💚 HP: 100");  // Adding a green heart emoji for health
+        Label healthLabel = new Label("💚 HP: 100"+"%");  // Adding a green heart emoji for health
         healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0); -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 20 0 0 0;");
         
         // Add the plant image and health label to the StackPane
@@ -473,7 +485,7 @@ public class ViewController {
             return; // Prevent multiple activations while sprinklers are active
         }
     
-        logMessage("Activated Sprinklers");
+        logMessage("-> Activated Sprinklers");
         isSprinklerActive = true;
     
         List<ImageView> activeSprinklers = new ArrayList<>();
@@ -496,7 +508,7 @@ public class ViewController {
                         sprinklerView.setFitHeight(40);
                         sprinklerView.setFitWidth(45);
                         sprinklerView.setTranslateX(-85);
-                        sprinklerView.setTranslateY(49);
+                        sprinklerView.setTranslateY(82);
     
                         imageBox.getChildren().add(sprinklerView);
                         activeSprinklers.add(sprinklerView);
@@ -519,7 +531,7 @@ public class ViewController {
 
     @FXML
     private void applyPesticide(ActionEvent event) {
-        logMessage("Activated Pesticide");
+        logMessage("-> Activated Pesticide");
         pesticideController.applyPesticide(plantsList);
         removePestsImmediately();
     }
@@ -550,7 +562,7 @@ private void activateRain() {
         return; // If rain is already active, do nothing
     }
 
-    logMessage("Activated Rainfall");
+    logMessage("-> Activated Rainfall");
     isRainActive = true;
     int totalRows = 10; // Number of rows for raindrops
     int raindropsPerRow = 8; // Raindrops in each row
@@ -563,7 +575,7 @@ private void activateRain() {
         int finalRow = row;
         rainTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(row * rowDelay), e -> {
             for (int i = 0; i < raindropsPerRow; i++) {
-                ImageView raindrop = new ImageView(rainyImage); // Use actual rain image
+                ImageView raindrop = new ImageView(rainDrop); // Use actual rain image
                 raindrop.setFitHeight(10);
                 raindrop.setFitWidth(5);
 
@@ -587,7 +599,7 @@ private void activateRain() {
 
     // Update weather label and image
     Platform.runLater(() -> {
-        weatherLabel.setText("RAINY");
+        weatherLabel.setText("RAINY" + " " + currentTemperature + "°F");
         weatherImageView.setImage(rainyImage);
     });
 
@@ -604,7 +616,7 @@ private void activateRain() {
  */
 private void stopRain(Timeline rainTimeline) {
     Platform.runLater(() -> {
-        weatherLabel.setText("Sunny");
+        weatherLabel.setText("Sunny" + " " + currentTemperature + "°F");
         weatherImageView.setImage(sunnyImage);
         isRainActive = false;
 
@@ -625,21 +637,20 @@ private void stopRain(Timeline rainTimeline) {
 
             if (rainfallAmount <=5) {
                 log.warn("Insufficient rainfall received. Activating sprinkler system.");
-                logMessage("Insufficient rainfall received. Activating sprinkler system.");
+                logMessage("-> Insufficient rainfall received. Activating sprinkler system.");
                 sprinklerController.activateSprinklers(plantsList);
             } else {
                 log.info("Sufficient rainfall received. No need to activate sprinklers.");
-                logMessage("Sufficient rainfall received. No need to activate sprinklers.");
+                logMessage("-> Sufficient rainfall received. No need to activate sprinklers.");
 
 
             }
         });
     }
     @FXML
-    private void adjustTemperature(ActionEvent event) {
-        logMessage("Handingly Temperature");
+    private void adjustTemperature(int currentTemperature, List<Plant> plantlist) {
+        logMessage("-> Handingly Temperature");
         Platform.runLater(() -> {
-            int currentTemperature = getCurrentTemperature();
             temperatureController.adjustTemperature(currentTemperature, plantsList);
             handleTemperatureWarnings(currentTemperature);
 
@@ -650,18 +661,19 @@ private void stopRain(Timeline rainTimeline) {
         if (temperature < TemperatureController.LOWER_TEMPERATURE_THRESHOLD) {
             int adjustedTemperature = heatingController.activateHeating();
             log.warn("Warning: Low temperature detected. Heating system activated. Current temperature: " + adjustedTemperature + "°F");
-            logMessage("Warning: Low temperature detected. Heating system activated. Current temperature: " + adjustedTemperature + "°F");
+            logMessage("-> Warning: Low temperature detected. Heating system activated. Current temperature: " + adjustedTemperature + "°F");
 
 
         } else if (temperature > 120) {
             log.warn("Extreme high temperature detected. All plants will die.");
-            logMessage("Extreme high temperature detected. All plants will die.");
+            logMessage("-> Extreme high temperature detected. All plants will die.");
 
         } else {
             log.info("Temperature is within the normal range.");
-            logMessage("Temperature is within the normal range.");
+            logMessage("-> Temperature is within the normal range.");
         }
     }
+
     public void displayLogContents() {
         try {
             // Get the path to the log file
@@ -680,7 +692,7 @@ private void stopRain(Timeline rainTimeline) {
 
 
     private int getCurrentTemperature() {
-        return 24;
+        return currentTemperature;
     }
 
     void logMessage(String message) {
@@ -737,6 +749,7 @@ private void stopRain(Timeline rainTimeline) {
 
     //incrementing each day and calling appropriate methods to run each day
     public void iterateDay() throws IOException {
+        
         userInfoLabel.setText("Today is Day " + day);
         die();
         Random random = new Random();
@@ -746,13 +759,15 @@ private void stopRain(Timeline rainTimeline) {
         System.out.println("random rain = " + randomRain);
         if (randomRain == 1) {
             activateRain();
+            currentTemperature -= 5;
+            adjustTemperature(getCurrentTemperature(), plantsList);
             for (Plant plant : plantsList) {
                 plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() + 2);
                 if(plant.getCurrentWaterLevel() > plant.getWaterRequirement()){
                     plant.setHealth(plant.getHealth()-2);
                 }
                 else if(plant.getCurrentWaterLevel() == plant.getWaterRequirement()){
-                    plant.setHealth(plant.getHealth() + 1);
+                    plant.setHealth(plant.getHealth() + 4);
                 }
             }
         }
@@ -760,6 +775,8 @@ private void stopRain(Timeline rainTimeline) {
             for (Plant plant : plantsList) {
                 plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() - 2);
             }
+            currentTemperature += 3;
+            adjustTemperature(getCurrentTemperature(), plantsList);
         }
     
         // Perform pest control
@@ -789,7 +806,6 @@ private void stopRain(Timeline rainTimeline) {
         for (Plant plant : plantsList) {
             if(plant.getCurrentWaterLevel() < plant.getWaterRequirement()){
                 activateSprinklers();
-    
             }
         }
     
@@ -927,6 +943,7 @@ private void stopRain(Timeline rainTimeline) {
     }
 
     public void pestControl() {
+        logMessage("-> Activated Pesticide");
         List<Insect> pestsToRemove = new ArrayList<>();
     
         for (Insect pest : insects) {
@@ -1023,13 +1040,13 @@ private void stopRain(Timeline rainTimeline) {
     
                 // If health label does not exist, create and add it
                 if (healthLabel == null) {
-                    healthLabel = new Label("HP: " + plant.getHealth());
+                    healthLabel = new Label("HP: " + plant.getHealth()+"%");
                     healthLabel.setStyle("-fx-background-color: rgba(0, 0, 0, 0.5); -fx-text-fill: white;");
                     StackPane.setAlignment(healthLabel, Pos.TOP_LEFT); // Position the health label in the top-left corner
                     stackPane.getChildren().add(healthLabel);
                 } else {
                     // If health label exists, update it
-                    healthLabel.setText("💚 HP: " + plant.getHealth());
+                    healthLabel.setText("💚 HP: " + plant.getHealth()+"%");
                 }
     
                 // Ensure StackPane itself doesn't interfere with the label alignment
