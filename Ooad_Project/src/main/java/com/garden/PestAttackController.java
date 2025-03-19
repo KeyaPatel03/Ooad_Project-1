@@ -1,10 +1,10 @@
 package com.garden;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.List;
 import java.util.Random;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PestAttackController {
     private static final Logger log = LogManager.getLogger(PestAttackController.class);
@@ -21,7 +21,7 @@ public class PestAttackController {
                 if (plant.isPesticideApplied()) {
                     log.info("Pesticide protects {} from the {} pest attack.", plant.getName(), selectedPest);
                 } else {
-                    if (random.nextDouble() < 0.25) { // 25% chance the plant will be affected if it is vulnerable
+                    if (plant.getHealth() <= 0) { // 25% chance the plant will be affected if it is vulnerable
                         plant.setAlive(false);
                         log.warn("Plant {} has been killed by a {} pest attack.", plant.getName(), selectedPest);
                     } else {

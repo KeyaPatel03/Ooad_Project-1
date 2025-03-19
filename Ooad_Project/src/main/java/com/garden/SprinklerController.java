@@ -21,7 +21,7 @@ public class SprinklerController {
         for (Plant plant : plants) {
             totalRequirement += plant.getWaterRequirement();
         }
-        return totalRequirement / 1;
+        return totalRequirement / plants.size();
     }
 
 }

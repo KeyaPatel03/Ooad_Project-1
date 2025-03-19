@@ -11,6 +11,8 @@ public class TemperatureController {
     private static final Logger log = LogManager.getLogger(TemperatureController.class);
     private final HeatingController heatingController = new HeatingController();
 
+    private final CoolingController coolingController = new CoolingController();
+
     public void adjustTemperature(int temperature, List<Plant> plants) {
         log.info("Adjusting temperature to {} °F.", temperature);
 
@@ -19,7 +21,7 @@ public class TemperatureController {
             temperature = heatingController.activateHeating();
         } else if (temperature > 120) {
             log.warn("Detected high temperature of {} which is above {}. Activating Garden Cooling system", temperature, Higher_TEMPERATURE_THRESHOLD);
-            temperature = heatingController.activateHeating();
+            temperature = coolingController.activateCooling();
         }
         adjustPlantTemperatures(plants, temperature);
     }
