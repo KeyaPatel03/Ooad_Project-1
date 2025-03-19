@@ -1,10 +1,9 @@
 package com.garden;
 
+import java.util.Map;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Map;
-import java.util.Objects;
 
 public class GardenSimulator {
     private static final Logger log = LogManager.getLogger(GardenSimulator.class);
@@ -29,17 +28,17 @@ public class GardenSimulator {
 
         // beginning of the third day
         gardenAPI.temperature(45);
-        gardenAPI.parasites("Slugs");
+        gardenAPI.parasites("Mites");
         sleepOneHour(); // end of third day
 
         // beginning of the fourth day
         gardenAPI.temperature(25);
-        gardenAPI.parasites("Whiteflies");
+        gardenAPI.parasites("caterpillar");
         sleepOneHour(); // end of fourth day
 
         // beginning of the fifth day
         gardenAPI.temperature(30);
-        gardenAPI.parasites("Weevils");
+        gardenAPI.parasites("beetles");
         sleepOneHour(); // end of fifth \day
 
         // .... after 24 days

@@ -15,7 +15,6 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 
-import javafx.geometry.Insets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,9 +23,6 @@ import static com.garden.Pest.pests;
 import static com.garden.Plant.plantImageViewMap;
 import static com.garden.Plant.plantsList;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
@@ -36,10 +32,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -51,9 +46,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 
@@ -747,9 +739,7 @@ private void stopRain(Timeline rainTimeline) {
     }
     
 
-    //incrementing each day and calling appropriate methods to run each day
     public void iterateDay() throws IOException {
-        
         userInfoLabel.setText("Today is Day " + day);
         die();
         Random random = new Random();
@@ -758,20 +748,23 @@ private void stopRain(Timeline rainTimeline) {
         int randomRain = random.nextInt(3);
         System.out.println("random rain = " + randomRain);
         if (randomRain == 1) {
+            int rainDurationMinutes = random.nextInt(48) + 1; // Generates a number from 1 to 48 minutes
+            int rainDurationSeconds = rainDurationMinutes * 60; // Convert minutes to seconds
+    
+            System.out.println("Rain will last for " + rainDurationMinutes + " minutes.");
             activateRain();
             currentTemperature -= 5;
             adjustTemperature(getCurrentTemperature(), plantsList);
+    
             for (Plant plant : plantsList) {
                 plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() + 2);
-                if(plant.getCurrentWaterLevel() > plant.getWaterRequirement()){
-                    plant.setHealth(plant.getHealth()-2);
-                }
-                else if(plant.getCurrentWaterLevel() == plant.getWaterRequirement()){
+                if (plant.getCurrentWaterLevel() > plant.getWaterRequirement()) {
+                    plant.setHealth(plant.getHealth() - 2);
+                } else if (plant.getCurrentWaterLevel() == plant.getWaterRequirement()) {
                     plant.setHealth(plant.getHealth() + 4);
                 }
             }
-        }
-        else{
+        } else {
             for (Plant plant : plantsList) {
                 plant.setCurrentWaterLevel(plant.getCurrentWaterLevel() - 2);
             }
@@ -789,13 +782,12 @@ private void stopRain(Timeline rainTimeline) {
         // If the random number is 1, add pests immediately
         if (randomPests == 1) {
             addPestsToCells();
-        }
-        else{
+        } else {
             for (Plant plant : plantsList) {
                 plant.setHealth(plant.getHealth() + 2);
             }
-        } 
-
+        }
+    
         if (!occupiedCells.isEmpty()) {
             // pests();
         }
@@ -803,8 +795,9 @@ private void stopRain(Timeline rainTimeline) {
         for (Plant plant : plantsList) {
             System.out.println(plant);
         }
+    
         for (Plant plant : plantsList) {
-            if(plant.getCurrentWaterLevel() < plant.getWaterRequirement()){
+            if (plant.getCurrentWaterLevel() < plant.getWaterRequirement()) {
                 activateSprinklers();
             }
         }
@@ -813,9 +806,11 @@ private void stopRain(Timeline rainTimeline) {
     }
     
     
+    
+    
 
     public void iterateDayWithTimer() throws InterruptedException, IOException {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<>() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2880), new EventHandler<>() {
             @Override
             public void handle(ActionEvent event) {
                 try {

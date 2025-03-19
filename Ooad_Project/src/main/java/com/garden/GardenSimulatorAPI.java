@@ -25,9 +25,7 @@ public class GardenSimulatorAPI {
         gardenController = new GardenController(plants);
     }
 
-
      // Loads the required plants from configuration file
-
     public void loadPlants(String configFile) {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream(configFile)) {
             if (is == null) {
@@ -98,7 +96,6 @@ public class GardenSimulatorAPI {
         log.info("Parasite {} infested the garden", parasiteName);
         gardenController.simulatePestAttack(parasiteName);
     }
-
 
     public void getStatus() {
         // Retrieves and logs the current status of the garden
